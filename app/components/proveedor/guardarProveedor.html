@@ -1,0 +1,26 @@
+<div ng-controller="CtrlGuardarProveedor">
+    <form>
+    	<div>
+    		<input type="text" ng-model="nombreProveedor" value="{{proveedor.nombreProveedor}}" required/>
+    	</div>
+    	<div>
+    		<input type="text" ng-model="ciudadProveedor" value="{{proveedor.ciudad}}" required/>
+    	</div>
+        <div>
+            <input type="text" ng-model="codigoPostalProveedor" value="{{proveedor.codigoPostal}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="paisProveedor" value="{{proveedor.pais}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="telefonoProveedor" value="{{proveedor.telefono}}" required/>
+        </div>
+        <div>
+            <input type="hidden" ng-model="idProveedor" required/>
+        </div>
+    	<div>
+            <input onclick="guardarProveedor()" type="button" value="Guardar Proveedor">
+    	</div>
+    </form>
+</div>
+<script src="guardarProveedor.js" />
