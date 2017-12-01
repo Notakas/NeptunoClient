@@ -1,4 +1,4 @@
-<div ng-controller="controllerlistaproducto">
+<div ng-controller="CtrlListaProducto">
     <table>
         <tr>
             <th>Id producto</th>
@@ -10,7 +10,7 @@
             <th>Precio de compra</th>
             <th colspan="2">Existencias</th>
         </tr>
-        <tr ng-repeat="producto in listaproducto">
+        <tr ng-repeat="producto in listaProducto">
             <td>producto.idProducto</td>
             <td>producto.idProovedor</td>
             <td>producto.idCategoria</td>
@@ -19,7 +19,7 @@
             <td>producto.precioVenta</td>
             <td>producto.precioCompra</td>
             <td>producto.existencias</td>
-            <td><a href="/editarProducto">Editar</a></td>
+            <td><a href="/modificarProducto">Editar</a></td>
         </tr>
     </table>
     <form action="/añadirProducto">
