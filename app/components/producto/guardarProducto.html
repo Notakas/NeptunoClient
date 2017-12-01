@@ -1,0 +1,25 @@
+<div ng-controller="CtrlModificarProducto">
+    <form ng-submit="submit()">
+    	<div>
+    		<input type="text" ng-model="nombreProducto" value="{{producto.nombreProducto}}" required/>
+    	</div>
+    	<div>
+    		<input type="text" ng-model="descripcionProducto" value="{{producto.descripcion}}" required/>
+    	</div>
+        <div>
+            <input type="text" ng-model="precioVentaProducto" value="{{producto.precioVenta}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="precioCompraProducto" value="{{producto.precioCompra}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="exintenciasProducto" value="{{producto.existencias}}" required/>
+        </div>
+        <div>
+            <input type="hidden" ng-model="idProducto" required/>
+        </div>
+    	<div>
+            <input onclick="modificarProducto()" type="button" value="Guardar Producto">
+    	</div>
+    </form>
+</div>

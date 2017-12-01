@@ -1,0 +1,30 @@
+<div ng-controller="CtrlListaEmpleado">
+        <table>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre Empleado</th>
+                <th>Apellidos</th>
+                <th>Cargo</th>
+                <th>Direccion</th>
+                <th>ciudad</th>
+                <th>Codigo Postal</th>
+                <th>Pais</th>
+                <th colspan="2">Telefono</th>
+            </tr>
+            <tr ng-repeat="empleado in listaEmpleados">
+                <td>empleado.dni</td>
+                <td>empleado.nombreEmpleado</td>
+                <td>empleado.apellidos</td>
+                <td>empleado.cargo</td>
+                <td>empleado.direccion</td>
+                <td>empleado.ciudad</td>
+                <td>empleado.codigoPostal</td>
+                <td>empleado.pais</td>
+                <td>empleado.telefono</td>
+                <td><a ng-href="/modificarEmpleado/{{empleado.dni}}">Editar</a></td>
+            </tr>
+        </table>
+        <form action="/añadirEmpleado">
+            <input type="submit" value="Añadir Nuevo" />
+        </form>
+    </div>
