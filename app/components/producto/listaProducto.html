@@ -2,7 +2,7 @@
     <table>
         <tr>
             <th>Id producto</th>
-            <th>Id Proovedor</th>
+            <th>Id Proveedor</th>
             <th>Id Categoria</th>
             <th>Nombre Producto</th>
             <th>Descripcion</th>
@@ -12,14 +12,14 @@
         </tr>
         <tr ng-repeat="producto in listaProducto">
             <td>producto.idProducto</td>
-            <td>producto.idProovedor</td>
+            <td>producto.idProveedor</td>
             <td>producto.idCategoria</td>
             <td>producto.nombreProducto</td>
             <td>producto.descripcion</td>
             <td>producto.precioVenta</td>
             <td>producto.precioCompra</td>
             <td>producto.existencias</td>
-            <td><a href="/modificarProducto">Editar</a></td>
+            <td><a ng-href="/modificarProducto/{{producto.idProducto}}">Editar</a></td>
         </tr>
     </table>
     <form action="/añadirProducto">
