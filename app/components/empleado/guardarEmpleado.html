@@ -1,0 +1,28 @@
+<div ng-controller="CtrlGuardarCliente">
+    <form>
+    	<div>
+    		<input type="text" ng-model="nombrePersonaCliente" value="{{cliente.nombrePersona}}" required/>
+    	</div>
+        <div>
+    		<input type="text" ng-model="nombreEmpresaCliente" value="{{cliente.nombreEmpresa}}" required/>
+    	</div>
+    	<div>
+    		<input type="text" ng-model="direccionCliente" value="{{cliente.direccion}}" required/>
+    	</div>
+        <div>
+            <input type="text" ng-model="codigoPostalCliente" value="{{cliente.codigoPostal}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="paisCliente" value="{{cliente.pais}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="telefonoCliente" value="{{cliente.telefono}}" required/>
+        </div>
+        <div>
+            <input type="hidden" ng-model="cifCliente" required/>
+        </div>
+    	<div>
+            <input onclick="guardarCliente()" type="button" value="Guardar Cliente">
+    	</div>
+    </form>
+</div>
