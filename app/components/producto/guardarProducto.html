@@ -1,5 +1,5 @@
-<div ng-controller="CtrlModificarProducto">
-    <form ng-submit="submit()">
+<div ng-controller="CtrlGuardarProducto">
+    <form>
     	<div>
     		<input type="text" ng-model="nombreProducto" value="{{producto.nombreProducto}}" required/>
     	</div>
@@ -19,7 +19,7 @@
             <input type="hidden" ng-model="idProducto" required/>
         </div>
     	<div>
-            <input onclick="modificarProducto()" type="button" value="Guardar Producto">
+            <input onclick="guardarProducto()" type="button" value="Guardar Producto">
     	</div>
     </form>
 </div>
