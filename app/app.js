@@ -4,23 +4,41 @@ function($routeProvider, $locationProvider) {
 $routeProvider.when('/', {
 templateUrl: 'components/login/login.html',
 controller: 'CtrlLogin'
+}).when('/listaProducto', {
+    templateUrl: 'components/producto/listaProducto.html',
+    controller: 'CtrlListaProducto'
+}).when('/listaProveedor', {
+    templateUrl: 'components/proveedor/listaProveedor.html',
+    controller: 'CtrlListaProveedor'
+}).when('/listaCategoria', {
+    templateUrl: 'components/categoria/listaCategoria.html',
+    controller: 'CtrlListaCategoria'
+}).when('/listaEmpleado', {
+    templateUrl: 'components/empleado/listaEmpleado.html',
+    controller: 'CtrlListaEmpleado'
+}).when('/listaCliente', {
+    templateUrl: 'components/cliente/listaCliente.html',
+    controller: 'CtrlListaCliente'
+}).when('/listaPedido', {
+    templateUrl: 'components/pedido/listaPedido.html',
+    controller: 'CtrlListaPedido'
 }).when('/añadirProducto', {
-    templateUrl: 'components/producto/addProducto.html',
+    templateUrl: 'components/producto/guardarProducto.html',
     controller: 'CtrlAddProducto'
 }).when('/añadirProveedor', {
-    templateUrl: 'components/proveedor/addProveedor.html',
+    templateUrl: 'components/proveedor/guardarProveedor.html',
     controller: 'CtrlAddProveedor'
 }).when('/añadirCliente', {
-    templateUrl: 'components/cliente/addCliente.html',
+    templateUrl: 'components/cliente/guardarCliente.html',
     controller: 'CtrlAddCliente'
 }).when('/añadirEmpleado', {
-    templateUrl: 'components/empleado/addEmpleado.html',
+    templateUrl: 'components/empleado/guardarEmpleado.html',
     controller: 'CtrlAddEmpleado'
 }).when('/añadirCategoria', {
-    templateUrl: 'components/categoria/addCategoria.html',
+    templateUrl: 'components/categoria/guardarCategoria.html',
     controller: 'CtrlAddCategoria'
 }).when('/añadirPedido', {
-    templateUrl: 'components/pedido/addPedido.html',
+    templateUrl: 'components/pedido/guardarPedido.html',
     controller: 'CtrlAddPedido'
 }).when('/modificarProducto/:id', {
     templateUrl: 'components/producto/guardarProducto.html',
