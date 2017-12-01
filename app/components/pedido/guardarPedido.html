@@ -1,30 +1,46 @@
 <div ng-controller="CtrlGuardarPedido">
-       <!-- 
         <div>
         <form>
             <div>
-                <input type="text" ng-model="nombreProducto" value="{{producto.nombreProducto}}" required/>
+                <input type="hidden" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="descripcionProducto" value="{{producto.descripcion}}" required/>
+                <input type="text" ng-model="dniModificacionPedido" value="{{pedido.idModificaion}}" readonly required/>
             </div>
             <div>
-                <input type="text" ng-model="precioVentaProducto" value="{{producto.precioVenta}}" required/>
+                <input type="text" ng-model="dniCreacionPedido" value="{{pedido.dniCreacion}}" readonly required/>
             </div>
             <div>
-                <input type="text" ng-model="precioCompraProducto" value="{{producto.precioCompra}}" required/>
+                <input type="text" ng-model="cifClientePedido" value="{{pedido.cifCliente}}" readonly required/>
             </div>
             <div>
-                <input type="text" ng-model="exintenciasProducto" value="{{producto.existencias}}" required/>
+                <input type="text" ng-model="fechaCreacionPedido" value="{{pedido.fechaCreacion}}" readonly required/>
             </div>
             <div>
-                <input type="hidden" ng-model="idProducto" required/>
+                <input type="text" ng-model="importeTotalPedido" value="{{pedido.importeTotal}}" readonly required/>
+            </div>
+            <div>
+                <input type="text" ng-model="estadoPedidoPedido" value="{{pedido.estadoPedido}}" readonly required/> <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
+            </div>
+            <div>
+                <input type="text" ng-model="destinatarioPedido" value="{{pedido.destinatario}}" required/>
+            </div>
+            <div>
+                <input type="text" ng-model="direccionEntregaPedido" value="{{pedido.direccionEntrega}}" required/>
+            </div>
+            <div>
+                <input type="text" ng-model="codigoPostalPedido" value="{{pedido.codigoPostal}}" required/>
+            </div>
+            <div>
+                <input type="text" ng-model="pais" value="{{pedido.pais}}" required/>
+            </div>
+            <div>
+                <input type="text" ng-model="fechaModificacion" value="{{pedido.fechaModificacion}}" readonly required/>
             </div>
             <div>
                 <input onclick="guardarProducto()" type="button" value="Guardar Producto">
             </div>
         </form>
     </div>
-    -->
 </div>
 <script src="guardarPedido.js" />
