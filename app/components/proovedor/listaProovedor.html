@@ -8,14 +8,14 @@
                 <th>Pais</th>
                 <th colspan="2">Telefono</th>
             </tr>
-            <tr ng-repeat="provvedor in listaProveedor">
+            <tr ng-repeat="proveedor in listaProveedor">
                 <td>proveedor.idProveedor</td>
                 <td>proveedor.nombreProveedor</td>
                 <td>proveedor.ciudad</td>
                 <td>proveedor.codigoPostal</td>
                 <td>proveedor.pais</td>
                 <td>proveedor.telefono</td>
-                <td><a href="/modificarProveedor">Editar</a></td>
+                <td><a ng-href="/modificarProveedor/{{proveedor.idProveedor}}">Editar</a></td>
             </tr>
         </table>
         <form action="/añadirProveedor">
