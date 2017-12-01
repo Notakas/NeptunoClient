@@ -1,0 +1,24 @@
+<div ng-controller="CtrlListaProveedor">
+        <table>
+            <tr>
+                <th>Id Proveedor</th>
+                <th>Nombre Proveedor</th>
+                <th>Ciudad</th>
+                <th>Codigo Postal</th>
+                <th>Pais</th>
+                <th colspan="2">Telefono</th>
+            </tr>
+            <tr ng-repeat="provvedor in listaProveedor">
+                <td>proveedor.idProveedor</td>
+                <td>proveedor.nombreProveedor</td>
+                <td>proveedor.ciudad</td>
+                <td>proveedor.codigoPostal</td>
+                <td>proveedor.pais</td>
+                <td>proveedor.telefono</td>
+                <td><a href="/modificarProveedor">Editar</a></td>
+            </tr>
+        </table>
+        <form action="/añadirProveedor">
+            <input type="submit" value="Añadir Nuevo" />
+        </form>
+    </div>

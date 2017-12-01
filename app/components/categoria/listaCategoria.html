@@ -1,0 +1,18 @@
+<div ng-controller="CtrlListaCategoria">
+        <table>
+            <tr>
+                <th>Id Categoria</th>
+                <th>Nombre Categoria</th>
+                <th colspan="2">Descripcion</th>
+            </tr>
+            <tr ng-repeat="categoria in listaCategoria">
+                <td>categoria.idCategoria</td>
+                <td>cliente.nombreCategoria</td>
+                <td>cliente.descripcion</td>
+                <td><a href="/modificarCategoria">Editar</a></td>
+            </tr>
+        </table>
+        <form action="/añadirCategoria">
+            <input type="submit" value="Añadir Nuevo" />
+        </form>
+    </div>
