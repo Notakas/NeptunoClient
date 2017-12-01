@@ -1,0 +1,36 @@
+<div ng-controller="CtrlListaPedido">
+    <table>
+        <tr>
+            <th>Id pedido</th>
+            <th>DNI modificación</th>
+            <th>DNI creación</th>
+            <th>Cif cliente</th>
+            <th>Fecha creación</th>
+            <th>Importe total</th>
+            <th>Estado pedido</th>
+            <th>Destinatario</th>
+            <th>Dirección entrega</th>
+            <th>Código postal</th>
+            <th>País</th>
+            <th colspan="2">Fecha modificación</th>
+        </tr>
+        <tr ng-repeat="pedido in listaPedido">
+            <td>pedido.idPedido</td>
+            <td>pedido.dniModificacion</td>
+            <td>pedido.dniCreacion</td>
+            <td>pedido.cifCliente</td>
+            <td>pedido.fechaCreacion</td>
+            <td>pedido.importeTotal</td>
+            <td>pedido.estadoPedido</td>
+            <td>pedido.destinatario</td>
+            <td>pedido.direccionEntrega</td>
+            <td>pedido.codigoPostal</td>
+            <td>pedido.pais</td>
+            <td>pedido.fechaModificacion</td>
+            <td><a href="/modificarPedido">Editar</a></td>
+        </tr>
+    </table>
+    <form action="/añadirPedido">
+        <input type="submit" value="Añadir Nuevo" />
+    </form>
+</div>
