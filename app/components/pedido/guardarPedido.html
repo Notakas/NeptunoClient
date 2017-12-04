@@ -1,5 +1,5 @@
 <div ng-controller="CtrlGuardarPedido">
-        <div>
+    <div>
         <form>
             <div>
                 <input type="hidden" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
@@ -20,7 +20,8 @@
                 <input type="text" ng-model="importeTotalPedido" value="{{pedido.importeTotal}}" readonly required/>
             </div>
             <div>
-                <input type="text" ng-model="estadoPedidoPedido" value="{{pedido.estadoPedido}}" readonly required/> <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
+                <input type="text" ng-model="estadoPedidoPedido" value="{{pedido.estadoPedido}}" readonly required/>
+                <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
             </div>
             <div>
                 <input type="text" ng-model="destinatarioPedido" value="{{pedido.destinatario}}" required/>
@@ -37,9 +38,65 @@
             <div>
                 <input type="text" ng-model="fechaModificacion" value="{{pedido.fechaModificacion}}" readonly required/>
             </div>
-            <div>
-                <input onclick="guardarProducto()" type="button" value="Guardar Producto">
-            </div>
+            <script type="text/javascript" src="js/app.js"></script>
+            <script type="text/javascript" src="js/funcion.js"></script>
+
+                <input type="text" ng-model="buscar" />
+                <div ng-show="loading">
+                    <img src="image/Loading_icon.gif" />
+                </div>
+                <table id="myTable" ng-show="tabla">
+                    <thead>
+                        <tr>
+                            <th>nombreProducto</th>
+                            <th>precioVenta</th>
+                            <th>existencias</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="producto in lista | filter:{nombreProducto:buscar}">
+                            <td>{{producto.nombreProducto}}</td>
+                            <td>{{producto.precioVenta}}</td>
+                            <td>{{producto.existencias}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <br>nombreProducto:
+                    <input type="text" id="nombreProducto" ng-model="nombreProducto" />
+                    <br>cantidad:
+                    <input type="text" id="cantidad" ng-model="cantidad" />
+                    <br>descuento:
+                    <input type="text" id="descuento" ng-model="descuento" />
+
+                    <button ng-click="Add()">añadir</button>
+
+                    <div style="margin-left:500px">
+                        <table>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Descuento</th>
+                                <th>Precio</th>
+                            </tr>
+                            <tr ng-repeat="carrito in listado">
+                                <td>{{carrito.nombreProducto}}</td>
+                                <td>{{carrito.cantidad}}</td>
+                                <td>{{carrito.descuento}}%</td>
+                                <td>{{carrito.precioVenta}}€</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>Precio Total</td>
+                                <td>{{precioFinal}} €</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <input ng-click="guardarPedido()" type="button" value="Guardar Pedido">
+                </div>
         </form>
     </div>
 </div>
