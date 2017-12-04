@@ -12,14 +12,14 @@
             <th colspan="2">Existencias</th>
         </tr>
         <tr ng-repeat="producto in listaProducto|filter:{nombreProducto:filtro}">
-            <td>producto.idProducto</td>
-            <td>producto.idProveedor</td>
-            <td>producto.idCategoria</td>
-            <td>producto.nombreProducto</td>
-            <td>producto.descripcion</td>
-            <td>producto.precioVenta</td>
-            <td>producto.precioCompra</td>
-            <td>producto.existencias</td>
+            <td>{{producto.idProducto}}</td>
+            <td>{{producto.idProveedor}}</td>
+            <td>{{producto.idCategoria}}</td>
+            <td>{{producto.nombreProducto}}</td>
+            <td>{{producto.descripcion</t}}d>
+            <td>{{producto.precioVenta</t}}d>
+            <td>{{producto.precioCompra</}}td>
+            <td>{{producto.existencias}}</td>
             <td><a ng-href="/modificarProducto/{{producto.idProducto}}">Editar</a></td>
         </tr>
     </table>
