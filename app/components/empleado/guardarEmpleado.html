@@ -1,29 +1,35 @@
-<div ng-controller="CtrlGuardarCliente">
+<div ng-controller="CtrlGuardarEmpleado">
     <form>
     	<div>
-    		<input type="text" ng-model="nombrePersonaCliente" value="{{cliente.nombrePersona}}" required/>
+    		<input type="text" ng-model="nombreEmpleado" value="{{empleado.nombrePersona}}" required/>
     	</div>
         <div>
-    		<input type="text" ng-model="nombreEmpresaCliente" value="{{cliente.nombreEmpresa}}" required/>
+    		<input type="text" ng-model="apellidosEmpleado" value="{{empleado.apellidos}}" required/>
     	</div>
     	<div>
-    		<input type="text" ng-model="direccionCliente" value="{{cliente.direccion}}" required/>
+    		<input type="text" ng-model="cargoEmpleado" value="{{empleado.cargo}}" required/>
     	</div>
         <div>
-            <input type="text" ng-model="codigoPostalCliente" value="{{cliente.codigoPostal}}" required/>
+            <input type="text" ng-model="direccionEmpleado" value="{{empleado.direccion}}" required/>
         </div>
         <div>
-            <input type="text" ng-model="paisCliente" value="{{cliente.pais}}" required/>
+            <input type="text" ng-model="ciudadEmpleado" value="{{empleado.ciudad}}" required/>
         </div>
         <div>
-            <input type="text" ng-model="telefonoCliente" value="{{cliente.telefono}}" required/>
+            <input type="text" ng-model="codigoPostalEmpleado" value="{{empleado.codigoPostal}}" required/>
         </div>
         <div>
-            <input type="hidden" ng-model="cifCliente" required/>
+            <input type="text" ng-model="paisEmpleado" value="{{empleado.pais}}" required/>
+        </div>
+        <div>
+            <input type="text" ng-model="telefonoEmpleado" value="{{empleado.telefono}}" required/>
+        </div>
+        <div>
+            <input type="hidden" ng-model="dniEmpleado" required/>
         </div>
     	<div>
-            <input ng-click="guardarCliente()" type="button" value="Guardar Cliente">
+            <input ng-click="guardarEmpleado()" type="button" value="Guardar Empleado">
     	</div>
     </form>
 </div>
-<script src="empleado.js"/>
+<script src="cliente.js"/>
