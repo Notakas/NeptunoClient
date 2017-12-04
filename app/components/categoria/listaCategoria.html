@@ -7,9 +7,9 @@
                 <th colspan="2">Descripcion</th>
             </tr>
             <tr ng-repeat="categoria in listaCategoria|filter:{nombreCategoria:filtro}">
-                <td>categoria.idCategoria</td>
-                <td>cliente.nombreCategoria</td>
-                <td>cliente.descripcion</td>
+                <td>{{categoria.idCategoria}}</td>
+                <td>{{cliente.nombreCategoria}}</td>
+                <td>{{cliente.descripcion}}</td>
                 <td><a ng-href="/modificarCategoria/{{categoria.idCategoria}}">Editar</a></td>
             </tr>
         </table>
