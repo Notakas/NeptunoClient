@@ -10,3 +10,16 @@ app.controller('CtrlListaCliente', ['$scope', '$http', function ($scope, $http) 
          };
      };
 }]);
+
+app.controller('CtrlGuardarCliente', ['$scope', '$http', function ($scope, $http) {
+    var cliente={"nombreCliente":$scope.nombreCliente,"idCliente":$scope.idCliente,
+    "descripcion":$scope.descripcionCliente
+}
+    $scope.guardarCliente = function () {
+    var promise = $http.post('http://localhost:8080/AngularSpring/guardarCliente',Cliente);
+    promise.then(function (data, status, headers, config) {   
+    }), function (error) {
+        alert("Error: " + JSON.stringify({ error: error }));
+    };
+};
+}]);
