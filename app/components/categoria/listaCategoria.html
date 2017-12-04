@@ -1,11 +1,12 @@
 <div ng-controller="CtrlListaCategoria">
+       <input type="text" ng-model="filtro" placeholder="Categoria a buscar">
         <table>
             <tr>
                 <th>Id Categoria</th>
                 <th>Nombre Categoria</th>
                 <th colspan="2">Descripcion</th>
             </tr>
-            <tr ng-repeat="categoria in listaCategoria">
+            <tr ng-repeat="categoria in listaCategoria|filter:{nombreCategoria:filtro}">
                 <td>categoria.idCategoria</td>
                 <td>cliente.nombreCategoria</td>
                 <td>cliente.descripcion</td>
@@ -16,4 +17,4 @@
             <input type="submit" value="Añadir Nuevo" />
         </form>
     </div>
-<script src="listaCategoria.js" />
+<script src="categoria.js" />
