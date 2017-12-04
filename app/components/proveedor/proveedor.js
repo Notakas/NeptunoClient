@@ -1,7 +1,7 @@
 var app = angular.module('neptunoApp');
 app.controller('CtrlListaProveedor', ['$scope', '$http', function ($scope, $http) {
      $scope.listaProveedor = [];
-         var promise = $http.post('listaProveedor', []);
+         var promise = $http.post('http://localhost:8080/TiendaNeptuno/listaProveedores', []);
          promise.then(function(data, status, headers, config) {
          $scope.listaProveedor = data.data;
          }), function(error) {
@@ -23,7 +23,7 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http', function ($scope, $ht
     alert( "Error: " + JSON.stringify({error: error}));
     };
     $scope.guardarProveedor = function () {
-    var promise = $http.post('http://localhost:8080/AngularSpring/guardarProveedor',proveedor);
+    var promise = $http.post('http://localhost:8080/TiendaNeptuno/updateProveedor',proveedor);
     promise.then(function (data, status, headers, config) {   
     }), function (error) {
         alert("Error: " + JSON.stringify({ error: error }));
