@@ -10,12 +10,12 @@
                 <th colspan="2">Telefono</th>
             </tr>
             <tr ng-repeat="proveedor in listaProveedor|filter:{nombreProveedor:filtro}">
-                <td>proveedor.idProveedor</td>
-                <td>proveedor.nombreProveedor</td>
-                <td>proveedor.ciudad</td>
-                <td>proveedor.codigoPostal</td>
-                <td>proveedor.pais</td>
-                <td>proveedor.telefono</td>
+                <td>{{proveedor.idProveedor}}</td>
+                <td>{{proveedor.nombreProveedor}}</td>
+                <td>{{proveedor.ciudad}}</td>
+                <td>{{proveedor.codigoPostal}}</td>
+                <td>{{proveedor.pais}}</td>
+                <td>{{proveedor.telefono}}</td>
                 <td><a ng-href="/modificarProveedor/{{proveedor.idProveedor}}">Editar</a></td>
             </tr>
         </table>
