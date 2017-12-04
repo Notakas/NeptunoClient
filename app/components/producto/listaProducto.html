@@ -1,4 +1,5 @@
 <div ng-controller="CtrlListaProducto">
+    <input type="text" placeholder="Producto a buscar" ng-model="filtro">
     <table>
         <tr>
             <th>Id producto</th>
@@ -10,7 +11,7 @@
             <th>Precio de compra</th>
             <th colspan="2">Existencias</th>
         </tr>
-        <tr ng-repeat="producto in listaProducto">
+        <tr ng-repeat="producto in listaProducto|filter:{nombreProducto:filtro}">
             <td>producto.idProducto</td>
             <td>producto.idProveedor</td>
             <td>producto.idCategoria</td>
