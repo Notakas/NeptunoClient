@@ -1,7 +1,6 @@
 var app = angular.module('neptunoApp');
    app.controller('CtrlListaPedido', ['$scope', '$http', function ($scope, $http) {
         $scope.listaPedidos = [];
-        $scope.submit = function() {
             var promise = $http.post('listaPedido', []);
             promise.then(function(data, status, headers, config) {
             $scope.listaPedidos = data.data;
@@ -9,7 +8,6 @@ var app = angular.module('neptunoApp');
             alert( "Error: " + JSON.stringify({error: error}));
             };
             $scope.listado = []; //vacía el listado al final del proceso
-        };
 }]);
 
 app.controller("ctrlListaPedidoProducto",[ '$scope', '$http', function($scope, $http){
