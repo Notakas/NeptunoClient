@@ -11,7 +11,7 @@ app.controller('CtrlListaProveedor', ['$scope', '$http', function ($scope, $http
 
 app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
     
-    var proveedor;
+   
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verProveedor/'+$routeParams.id);
     
     promise.then(function(data, status, headers, config) {
@@ -27,7 +27,16 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', functi
     };
 
     $scope.guardarProveedor = function () {
-        var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/updateProveedor/'+proveedor.idProveedor);
+        var proveedor=new Object();
+        proveedor.nombreProveedor=$scope.nombreProveedor;
+        proveedor.ciudad=$scope.ciudadProveedor;
+        proveedor.codigoPostal=$scope.codigoPostalProveedor;
+        proveedor.pais=$scope.paisProveedor;
+        proveedor.telefono=$scope.telefonoProveedor;
+        if (proveedor.idProveedor!=null)
+        var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateProveedor',proveedor);
+        else
+        var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addProveedor',proveedor);
         promise.then(function (data, status, headers, config) {   
         }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));

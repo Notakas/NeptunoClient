@@ -25,22 +25,22 @@ controller: 'CtrlLogin'
     controller: 'CtrlListaPedido'
 }).when('/añadirProducto', {
     templateUrl: 'app/components/producto/guardarProducto.html',
-    controller: 'CtrlAddProducto'
+    controller: 'CtrlGuardarProducto'
 }).when('/añadirProveedor', {
     templateUrl: 'app/components/proveedor/guardarProveedor.html',
-    controller: 'CtrlAddProveedor'
+    controller: 'CtrlGuardarProveedor'
 }).when('/añadirCliente', {
     templateUrl: 'app/components/cliente/guardarCliente.html',
-    controller: 'CtrlAddCliente'
+    controller: 'CtrlGuardarCliente'
 }).when('/añadirEmpleado', {
     templateUrl: 'app/components/empleado/guardarEmpleado.html',
-    controller: 'CtrlAddEmpleado'
+    controller: 'CtrlGuardarEmpleado'
 }).when('/añadirCategoria', {
     templateUrl: 'app/components/categoria/guardarCategoria.html',
-    controller: 'CtrlAddCategoria'
+    controller: 'CtrlGuardarCategoria'
 }).when('/añadirPedido', {
     templateUrl: 'app/components/pedido/guardarPedido.html',
-    controller: 'CtrlAddPedido'
+    controller: 'CtrlGuardarPedido'
 }).when('/modificarProducto/:id', {
     templateUrl: 'app/components/producto/guardarProducto.html',
     controller: 'CtrlGuardarProducto'
