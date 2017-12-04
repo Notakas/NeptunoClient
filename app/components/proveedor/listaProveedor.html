@@ -16,11 +16,10 @@
                 <td>{{proveedor.codigoPostal}}</td>
                 <td>{{proveedor.pais}}</td>
                 <td>{{proveedor.telefono}}</td>
-                <td><a ng-href="/modificarProveedor/{{proveedor.idProveedor}}">Editar</a></td>
+                <td><a ng-href="#!/modificarProveedor/{{proveedor.idProveedor}}">Editar</a></td>
             </tr>
         </table>
-        <form action="/añadirProveedor">
+        <form action="#!/añadirProveedor">
             <input type="submit" value="Añadir Nuevo" />
         </form>
     </div>
-<script src="proveedor.js" />
