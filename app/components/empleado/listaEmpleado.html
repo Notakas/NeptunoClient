@@ -11,7 +11,7 @@
                 <th>Pais</th>
                 <th colspan="2">Telefono</th>
             </tr>
-            <tr ng-repeat="empleado in listaEmpleados">
+            <tr ng-repeat="empleado in listaEmpleado">
                 <td>{{empleado.dni}}</td>
                 <td>{{empleado.nombreEmpleado}}</td>
                 <td>{{empleado.apellidos}}</td>
@@ -21,11 +21,10 @@
                 <td>{{empleado.codigoPostal}}</td>
                 <td>{{empleado.pais}}</td>
                 <td>{{empleado.telefono}}</td>
-                <td><a ng-href="/modificarEmpleado/{{empleado.dni}}">Editar</a></td>
+                <td><a ng-href="#!/modificarEmpleado/{{empleado.dni}}">Editar</a></td>
             </tr>
         </table>
-        <form action="/añadirEmpleado">
+        <form action="#!/añadirEmpleado">
             <input type="submit" value="Añadir Nuevo" />
         </form>
     </div>
-<script src="empleado.js" />

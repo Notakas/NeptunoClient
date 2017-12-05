@@ -41,3 +41,37 @@ nav ul {
 	    color: #fff;
         font-size:20px;
 	}
+
+/*TABLAS*/
+table{
+    width:90%;
+    margin-left: 5%;
+}
+table th {
+    background-color: #097BBC;
+    color:white;
+    font-weight: bold;
+}
+table tr {
+    background-color: #eee;
+}
+table tr:nth-child(2) {
+    background-color: #eee;
+}
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table tr:nth-child(odd) {
+    background-color: #DAE5F4;
+}
+#buscador_proveedor{
+    margin-left: 40%;
+    width: 20%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+h4{
+    color: #097BBC;
+    text-align: center;
+}
