@@ -11,7 +11,7 @@
                 <th>Telefono</th>
                 <th colspan="2">Existencias</th>
             </tr>
-            <tr ng-repeat="clientes in listaCliente|filter:{nombreCliente:filtro}">
+            <tr ng-repeat="cliente in listaCliente|filter:{nombreCliente:filtro}">
                 <td>{{cliente.cif}}</td>
                 <td>{{cliente.nombreEmpresa}}</td>
                 <td>{{cliente.nombrePersona}}</td>
@@ -19,7 +19,7 @@
                 <td>{{cliente.codigoPostal}}</td>
                 <td>{{cliente.pais}}</td>
                 <td>{{cliente.telefono}}</td>
-                <td><a ng-href="/modificarCliente/{{cliente.cif}}">Editar</a></td>
+                <td><a ng-href="/modificarCliente?id={{cliente.cif}}">Editar</a></td>
             </tr>
         </table>
         <form action="/añadirCliente">

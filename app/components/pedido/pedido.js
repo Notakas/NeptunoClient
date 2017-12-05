@@ -1,7 +1,7 @@
 var app = angular.module('neptunoApp');
    app.controller('CtrlListaPedido', ['$scope', '$http', function ($scope, $http) {
         $scope.listaPedidos = [];
-            var promise = $http.post('listaPedido', []);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaPedidos', []);
             promise.then(function(data, status, headers, config) {
             $scope.listaPedidos = data.data;
             }), function(error) {
@@ -10,10 +10,10 @@ var app = angular.module('neptunoApp');
             $scope.listado = []; //vacía el listado al final del proceso
 }]);
 
-app.controller("ctrlListaPedidoProducto",[ '$scope', '$http', function($scope, $http){
+app.controller("ctrlListaPedido",[ '$scope', '$http', function($scope, $http){
     $scope.loading=true;
     $scope.tabla=false;
-        var promise = $http.post('http://localhost:8080/AngularSpring/', []); 
+        var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/verPedido/5', []); 
     promise.then(function(data, status, headers, config) { 
         $scope.lista=data.data;
         $scope.loading=false;
