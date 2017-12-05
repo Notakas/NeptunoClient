@@ -1,48 +1,35 @@
 
 <div ng-controller="CtrlGuardarPedido">
     <div>
-        <form>
             <div>
-                <input type="hidden" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
+                <input ng-hide="true" type="text" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="dniModificacionPedido" value="{{pedido.idModificaion}}" readonly required/>
+                <select ng-model="dniCreacionPedido" ng-options="empleado.dni for empleado in listaEmpleado"></select>
             </div>
             <div>
-                <input type="text" ng-model="dniCreacionPedido" value="{{pedido.dniCreacion}}" readonly required/>
+                <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes"></select>
             </div>
             <div>
-                <input type="text" ng-model="cifClientePedido" value="{{pedido.cifCliente}}" readonly required/>
-            </div>
-            <div>
-                <input type="text" ng-model="fechaCreacionPedido" value="{{pedido.fechaCreacion}}" readonly required/>
-            </div>
-            <div>
-                <input type="text" ng-model="importeTotalPedido" value="{{pedido.importeTotal}}" readonly required/>
-            </div>
-            <div>
-                <input type="text" ng-model="estadoPedidoPedido" value="{{pedido.estadoPedido}}" readonly required/>
+                <input type="text" ng-model="estadoPedido" value="{{pedido.estadoPedido}}" readonly required/>
                 <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
             </div>
             <div>
-                <input type="text" ng-model="destinatarioPedido" value="{{pedido.destinatario}}" required/>
+                <input type="text" ng-model="destinatarioPedido" placeholder="Destinatario" value="{{pedido.destinatario}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="direccionEntregaPedido" value="{{pedido.direccionEntrega}}" required/>
+                <input type="text" ng-model="direccionEntregaPedido" placeholder="Direccion de entrega" value="{{pedido.direccionEntrega}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="codigoPostalPedido" value="{{pedido.codigoPostal}}" required/>
+                <input type="text" ng-model="codigoPostalPedido" placeholder="Codigo postal" value="{{pedido.codigoPostal}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="pais" value="{{pedido.pais}}" required/>
-            </div>
-            <div>
-                <input type="text" ng-model="fechaModificacion" value="{{pedido.fechaModificacion}}" readonly required/>
+                <input type="text" ng-model="paisPedido" placeholder="Pais" value="{{pedido.pais}}" required/>
             </div>
            <!-- <script type="text/javascript" src="js/app.js"></script>
             <script type="text/javascript" src="app/components/pedido/funcion.js"></script>-->
 
-                <input type="text" ng-model="buscar" />
+                <input type="text" placeholder="Producto a buscar" ng-model="buscar" />
                 <div ng-show="loading">
                     <img src="app/components/pedido/image/Loading_icon.gif" />
                 </div>
@@ -105,6 +92,5 @@
                 <div>
                     <input ng-click="guardarPedido()" type="button" value="Guardar Pedido">
                 </div>
-        </form>
     </div>
 </div>
