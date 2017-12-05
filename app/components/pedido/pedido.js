@@ -23,7 +23,9 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
     };
     $scope.listado=[]; 
     $scope.precioFinal=0;		
-    
+    $scope.guardarPedido=function()
+
+
     $scope.Add = function() { 
     if($scope.descuento==null || $scope.descuento==""){
             $scope.descuento=0;
