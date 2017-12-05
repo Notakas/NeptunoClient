@@ -9,8 +9,46 @@ var app = angular.module('neptunoApp');
             };
 }]);
 
-app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
+app.controller('CtrlGuardarPedido', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
     run();
+    var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
+    
+        promise.then(function(data, status, headers, config) {
+            pedido = data.data;
+            $scope.idPedido=pedido.idPedido;
+            $scope.dniCreacionPedido=pedido.empleado.dni;
+            $scope.cifClientePedido=pedido.cliente.cif;
+            $scope.estadoPedido=pedido.estadoPedido;
+            $scope.destinatarioPedido=pedido.destinatario;
+            $scope.direccionEntregaPedido=pedido.direccionEntrega;
+            $scope.codigoPostalPedido=pedido.codigoPostal;
+            $scope.paisPedido=pedido.pais;
+        }), function(error) {
+            alert( "Error: " + JSON.stringify({error: error}));
+        };
+    		
+    $scope.guardarPedido=function(){
+        var pedido=new Object();
+        pedido.idPedido=$scope.idPedido;
+        pedido.dniCreacion=$scope.dniCreacionPedido;
+        pedido.cifCliente=$scope.cifClientePedido;
+        pedido.estadoPedido=$scope.estadoPedido;
+        pedido.destinatario=$scope.destinatarioPedido;
+        pedido.direccionEntrega=$scope.direccionEntregaPedido;
+        pedido.codigoPostal=$scope.codigoPostalPedido;
+        pedido.pais=$scope.paisPedido;
+        if (pedido.idPedido!=null ||pedido.idPedido!=0)
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
+        else
+        $scope.estadoPedido="En preparacion";
+        $scope.mensaje="listo";
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
+        promise.then(function (data, status, headers, config) {
+        }), function (error) {
+            alert("Error: " + JSON.stringify({ error: error }));
+        };
+    }
+
     $scope.loading=true;
     $scope.tabla=false;
         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaProductos/', []); 
@@ -22,9 +60,7 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
             alert( "Error: " + JSON.stringify({error: error}));  
     };
     $scope.listado=[]; 
-    $scope.precioFinal=0;		
-    $scope.guardarPedido=function()
-
+    $scope.precioFinal=0;
 
     $scope.Add = function() { 
     if($scope.descuento==null || $scope.descuento==""){

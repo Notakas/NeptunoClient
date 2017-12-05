@@ -1,7 +1,6 @@
 
 <div ng-controller="CtrlGuardarPedido">
     <div>
-        <form>
             <div>
                 <input ng-hide="true" type="text" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
@@ -12,7 +11,7 @@
                 <input type="text" ng-model="cifClientePedido" value="{{pedido.cifCliente}}" placeholder="Cif de cliente" required/>
             </div>
             <div>
-                <input type="text" ng-model="estadoPedidoPedido" value="{{pedido.estadoPedido}}" readonly required/>
+                <input type="text" ng-model="estadoPedido" value="{{pedido.estadoPedido}}" readonly required/>
                 <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
             </div>
             <div>
@@ -25,7 +24,7 @@
                 <input type="text" ng-model="codigoPostalPedido" placeholder="Codigo postal" value="{{pedido.codigoPostal}}" required/>
             </div>
             <div>
-                <input type="text" ng-model="pais" placeholder="Pais" value="{{pedido.pais}}" required/>
+                <input type="text" ng-model="paisPedido" placeholder="Pais" value="{{pedido.pais}}" required/>
             </div>
            <!-- <script type="text/javascript" src="js/app.js"></script>
             <script type="text/javascript" src="app/components/pedido/funcion.js"></script>-->
@@ -93,6 +92,5 @@
                 <div>
                     <input ng-click="guardarPedido()" type="button" value="Guardar Pedido">
                 </div>
-        </form>
     </div>
 </div>
