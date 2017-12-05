@@ -2,7 +2,6 @@
     <table>
         <tr>
             <th>Id pedido</th>
-            <th>DNI modificación</th>
             <th>DNI creación</th>
             <th>Cif cliente</th>
             <th>Fecha creación</th>
@@ -12,13 +11,14 @@
             <th>Dirección entrega</th>
             <th>Código postal</th>
             <th>País</th>
-            <th colspan="2">Fecha modificación</th>
+            <!--<th>linea pedido</th>-->
+            <th>Fecha modificación</th>
+            <th>Editar</th>
         </tr>
-        <tr ng-repeat="pedido in listaPedido">
+        <tr ng-repeat="pedido in listaPedidos">
             <td>{{pedido.idPedido}}</td>
-            <td>{{pedido.dniModificacion}}</td>
-            <td>{{pedido.dniCreacion}}</td>
-            <td>{{pedido.cifCliente}}</td>
+            <td>{{pedido.empleado.dni}}</td>
+            <td>{{pedido.cliente.cif}}</td>
             <td>{{pedido.fechaCreacion}}</td>
             <td>{{pedido.importeTotal}}</td>
             <td>{{pedido.estadoPedido}}</td>
@@ -27,13 +27,17 @@
             <td>{{pedido.codigoPostal}}</td>
             <td>{{pedido.pais}}</td>
             <td>{{pedido.fechaModificacion}}</td>
-            <td><a ng-href="/modificarPedido/1">Editar</a></td>
+
+            <!--<td><p ng-repeat="linea in pedido.lineasPedido">
+                {{linea.producto.nombreProducto}}
+               </p>
+            </td>-->
+            <td><a ng-href="#!/modificarPedido/{{pedido.idPedido}}">Editar</a></td>
+
        <!-- <td><button ng-click="modificarPedido(pedido.idPedido)">AAAA</button></td> -->
         </tr>
     </table>
-    <form action="/añadirPedido">
+    <form action="#!/añadirPedido">
         <input type="submit" value="Añadir Nuevo" />
     </form>
 </div>
-
-<script src="listaPedido.js" />
