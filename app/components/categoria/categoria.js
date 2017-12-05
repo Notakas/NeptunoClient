@@ -1,25 +1,39 @@
 var app = angular.module('neptunoApp');
 app.controller('CtrlListaCategoria', ['$scope', '$http', function ($scope, $http) {
-    $scope.listaCategoria = [];
-    var promise = $http.post('listaCategoria', []);
-    promise.then(function (data, status, headers, config) {
-        $scope.listaCategoria = data.data;
-    }), function (error) {
-        alert("Error: " + JSON.stringify({ error: error }));
-    };
+     $scope.listaCategoria = [];
+         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategoria', []);
+         promise.then(function(data, status, headers, config) {
+         $scope.listaCategoria = data.data;
+         }), function(error) {
+         alert( "Error: " + JSON.stringify({error: error}));
+         };
 }]);
 
-app.controller('CtrlGuardarCategoria', ['$scope', '$http', function ($scope, $http) {
-    var categoria={
-                    "nombreCategoria":$scope.nombreCategoria,
-                    "idCategoria":$scope.idCategoria,
-                    "descripcion":$scope.descripcionCategoria
-    }
-    $scope.guardarCategoria = function () {
-    var promise = $http.post('http://localhost:8080/AngularSpring/guardarCategoria',categoria);
-    promise.then(function (data, status, headers, config) {   
-    }), function (error) {
-        alert("Error: " + JSON.stringify({ error: error }));
+app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+
+    var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verCategoria/'+$routeParams.id);
+
+    promise.then(function(data, status, headers, config) {
+        categoria = data.data;
+        $scope.nombreCategoria=categoria.nombreCategoria,
+        $scope.idCategoria=categoria.idCategoria,
+        $scope.descripcionCategoria=categoria.descripcionCategoria;
+    }), function(error) {
+        alert( "Error: " + JSON.stringify({error: error}));
     };
-};
+    $scope.guardarCategoria = function () {
+
+        var categoria=new Object();
+        categoria.nombreCategoria=$scope.nombreCategoria;
+        categoria.idCategoria=$scope.idCategoria;
+        categoria.descripcionCategoria=$scope.descripcionCategoria;
+        if (categoria.idCategoria!=null)
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateCategoria',categoria);
+        else
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addCategoria',categoria);
+            promise.then(function (data, status, headers, config) {
+            }), function (error) {
+            alert("Error: " + JSON.stringify({ error: error }));
+        };
+    };
 }]);
