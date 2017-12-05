@@ -1,3 +1,4 @@
+
 <div>
         <table>
             <tr>
@@ -14,3 +15,11 @@
         </table>
 
     </div>
+
+<div ng-controller="CtrlLogin">
+     <label>Usuario:</label><input type="text" ng-model="dniEmpleado" />
+     <label>Contraseña</label><input type="password" ng-model="contrasena" />
+     <button ng-click="login()">Acceder</button>
+
+	 {{mensaje}}
+</div>

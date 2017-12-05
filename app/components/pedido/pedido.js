@@ -1,19 +1,19 @@
 var app = angular.module('neptunoApp');
    app.controller('CtrlListaPedido', ['$scope', '$http', function ($scope, $http) {
         $scope.listaPedidos = [];
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaPedidos', []);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaPedidos/', []);
             promise.then(function(data, status, headers, config) {
             $scope.listaPedidos = data.data;
             }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
             };
-            $scope.listado = []; //vacía el listado al final del proceso
 }]);
 
-app.controller("ctrlListaPedido",[ '$scope', '$http', function($scope, $http){
+app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
+    run();
     $scope.loading=true;
     $scope.tabla=false;
-        var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/verPedido/5', []); 
+        var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaProductos/', []); 
     promise.then(function(data, status, headers, config) { 
         $scope.lista=data.data;
         $scope.loading=false;
@@ -45,6 +45,7 @@ app.controller("ctrlListaPedido",[ '$scope', '$http', function($scope, $http){
     }
     if(comprobar==false){
         var data = {
+            "idProducto":$scope.idProducto,
             "nombreProducto":$scope.nombreProducto,
             "cantidad":$scope.cantidad,
             "descuento":$scope.descuento,
@@ -77,3 +78,68 @@ app.controller("ctrlListaPedido",[ '$scope', '$http', function($scope, $http){
     };//funcion Add
   
 }]);
+
+function run() {
+    var t = document.getElementById('myTable');
+    t.onclick = function (event) {
+        event = event || window.event; //IE8
+        var target = event.target || event.srcElement;
+        while (target && target.nodeName != 'TR') { // find TR
+            target = target.parentElement;
+        }
+        //if (!target) { return; } //tr should be always found
+        var cells = target.cells; //cell collection - https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement
+        //var cells = target.getElementsByTagName('td'); //alternative
+        if (!cells.length || target.parentNode.nodeName == 'THEAD') {
+            return;
+        }
+        var f1 = document.getElementById('idProducto');
+        var f2 = document.getElementById('nombreProducto');
+        var f3 = document.getElementById('precioVenta');
+        
+        
+        f1.value = cells[0].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f1.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f1.dispatchEvent(event);
+        f2.value = cells[1].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f2.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f2.dispatchEvent(event);
+        
+        f3.value = cells[2].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f3.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+        
+        f3.dispatchEvent(event);
+
+        
+        
+    };
+}
