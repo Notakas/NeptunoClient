@@ -9,7 +9,7 @@ app.controller('CtrlListaCategoria', ['$scope', '$http', function ($scope, $http
          };
 }]);
 
-app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
 
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verCategoria/'+$routeParams.id);
 
@@ -35,5 +35,6 @@ app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', functi
             }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
         };
+        $location.path("listaCategoria")
     };
 }]);
