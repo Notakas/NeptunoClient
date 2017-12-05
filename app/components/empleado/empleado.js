@@ -9,7 +9,7 @@ app.controller('CtrlListaEmpleado', ['$scope', '$http', function ($scope, $http)
          };
 }]);
 
-app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$location', function($scope, $http, $routeParams, $location){
 
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verEmpleado/'+$routeParams.id);
 
@@ -48,5 +48,6 @@ app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', functio
             }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
         };
+        $location.path("listaEmpleado")
     };
 }]);

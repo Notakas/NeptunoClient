@@ -9,7 +9,7 @@ app.controller('CtrlListaProveedor', ['$scope', '$http', function ($scope, $http
          };
 }]);
 
-app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
 
 
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verProveedor/'+$routeParams.id);
@@ -44,5 +44,6 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', functi
         }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
         };
+        $location.path("listaProveedor")
     };
 }]);

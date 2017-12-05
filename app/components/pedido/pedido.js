@@ -9,7 +9,7 @@ var app = angular.module('neptunoApp');
             };
 }]);
 
-app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
+app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$location', function($scope, $http, $routeParams ,$location){
     run();
     $scope.loading=true;
     $scope.tabla=false;
