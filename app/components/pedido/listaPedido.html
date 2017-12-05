@@ -2,7 +2,6 @@
     <table>
         <tr>
             <th>Id pedido</th>
-            <th>DNI modificación</th>
             <th>DNI creación</th>
             <th>Cif cliente</th>
             <th>Fecha creación</th>
@@ -14,11 +13,10 @@
             <th>País</th>
             <th colspan="2">Fecha modificación</th>
         </tr>
-        <tr ng-repeat="pedido in listaPedido">
+        <tr ng-repeat="pedido in listaPedidos">
             <td>{{pedido.idPedido}}</td>
-            <td>{{pedido.dniModificacion}}</td>
-            <td>{{pedido.dniCreacion}}</td>
-            <td>{{pedido.cifCliente}}</td>
+            <td>{{pedido.empleado.dni}}</td>
+            <td>{{pedido.cliente.cif}}</td>
             <td>{{pedido.fechaCreacion}}</td>
             <td>{{pedido.importeTotal}}</td>
             <td>{{pedido.estadoPedido}}</td>
@@ -35,5 +33,3 @@
         <input type="submit" value="Añadir Nuevo" />
     </form>
 </div>
-
-<script src="listaPedido.js" />

@@ -1,16 +1,15 @@
 var app = angular.module('neptunoApp');
    app.controller('CtrlListaPedido', ['$scope', '$http', function ($scope, $http) {
         $scope.listaPedidos = [];
-            var promise = $http.post('listaPedido', []);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaPedidos/', []);
             promise.then(function(data, status, headers, config) {
             $scope.listaPedidos = data.data;
             }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
             };
-            $scope.listado = []; //vacía el listado al final del proceso
 }]);
 
-app.controller("ctrlListaPedidoProducto",[ '$scope', '$http', function($scope, $http){
+app.controller("CtrlGuardarPedido",[ '$scope', '$http', function($scope, $http){
     $scope.loading=true;
     $scope.tabla=false;
         var promise = $http.post('http://localhost:8080/AngularSpring/', []); 
@@ -45,6 +44,7 @@ app.controller("ctrlListaPedidoProducto",[ '$scope', '$http', function($scope, $
     }
     if(comprobar==false){
         var data = {
+            "idProducto":$scope.idProducto,
             "nombreProducto":$scope.nombreProducto,
             "cantidad":$scope.cantidad,
             "descuento":$scope.descuento,

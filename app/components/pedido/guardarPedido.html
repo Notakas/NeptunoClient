@@ -48,6 +48,7 @@
                 <table id="myTable" ng-show="tabla">
                     <thead>
                         <tr>
+                            <th>idProducto</th>
                             <th>nombreProducto</th>
                             <th>precioVenta</th>
                             <th>existencias</th>
@@ -55,6 +56,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="producto in lista | filter:{nombreProducto:buscar}">
+                            <td>{{producto.idProducto}}</td>
                             <td>{{producto.nombreProducto}}</td>
                             <td>{{producto.precioVenta}}</td>
                             <td>{{producto.existencias}}</td>
@@ -62,6 +64,7 @@
                     </tbody>
                 </table>
                 <div>
+                    <input type="hidden" id="idProducto" ng-model="idProducto" />
                     <br>nombreProducto:
                     <input type="text" id="nombreProducto" ng-model="nombreProducto" />
                     <br>cantidad:
@@ -74,12 +77,14 @@
                     <div style="margin-left:500px">
                         <table>
                             <tr>
+                                <th>idProducto</th>
                                 <th>Nombre</th>
                                 <th>Cantidad</th>
                                 <th>Descuento</th>
                                 <th>Precio</th>
                             </tr>
                             <tr ng-repeat="carrito in listado">
+                                <td>{{carrito.idProducto}}</td>
                                 <td>{{carrito.nombreProducto}}</td>
                                 <td>{{carrito.cantidad}}</td>
                                 <td>{{carrito.descuento}}%</td>
@@ -100,4 +105,3 @@
         </form>
     </div>
 </div>
-<script src="pedido.js" />
