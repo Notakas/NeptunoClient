@@ -21,7 +21,12 @@
         </div>
     	<div>
             <input ng-click="guardarProducto()" type="button" value="Guardar Producto">
-    	</div>
+        </div>
+        <div>
+        Categoría: <select ng-model="idCategoria">
+                <option ng-repeat="categoria in categorias" value="{{categoria.idCategoria}}">{{categoria.nombreCategoria}}</option>
+              </select>
+        </div>
     </form>
 </div>
 <script src="producto.js" />
