@@ -11,8 +11,25 @@ var app = angular.module('neptunoApp');
 
 app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$location', function($scope, $http, $routeParams ,$location){
     run();
+    $scope.listaEmpleado = [];
+    var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaEmpleados/', []);
+    promise.then(function(data, status, headers, config) {
+    $scope.listaEmpleado = data.data;
+    }), function(error) {
+    alert( "Error: " + JSON.stringify({error: error}));
+    };
+
+    $scope.listaClientes = [];
+    var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaClientes/', []);
+    promise.then(function(data, status, headers, config) {
+    $scope.listaClientes = data.data;
+    }), function(error) {
+    alert( "Error: " + JSON.stringify({error: error}));
+    };
+
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
-    
+    $scope.estadoPedido="En preparacion";
+    $scope.mensaje="listo";
         promise.then(function(data, status, headers, config) {
             pedido = data.data;
             $scope.idPedido=pedido.idPedido;
@@ -30,13 +47,28 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
     $scope.guardarPedido=function(){
         var pedido=new Object();
         pedido.idPedido=$scope.idPedido;
-        pedido.dniCreacion=$scope.dniCreacionPedido;
-        pedido.cifCliente=$scope.cifClientePedido;
+        pedido.empleado =  $scope.dniCreacionPedido;
+        pedido.cliente = $scope.cifClientePedido;
         pedido.estadoPedido=$scope.estadoPedido;
         pedido.destinatario=$scope.destinatarioPedido;
         pedido.direccionEntrega=$scope.direccionEntregaPedido;
         pedido.codigoPostal=$scope.codigoPostalPedido;
         pedido.pais=$scope.paisPedido;
+        var nuevolistado = [];
+        for (i=0;i<$scope.listado.length;i++){
+            var lineapedidon = new Object();
+            lineapedidon.cantidad=$scope.listado[i].cantidad;
+            lineapedidon.descuento=$scope.listado[i].descuento;
+            lineapedidon.precioUnidad=$scope.listado[i].precioVenta;
+            var producton = new Object();
+            producton.idProducto = $scope.listado[i].idProducto;
+            lineapedidon.producto = producton;
+
+            nuevolistado.push(lineapedidon);
+        }
+
+        pedido.lineasPedido=nuevolistado;
+        pedido.importeTotal=$scope.precioFinal;
         if (pedido.idPedido!=null ||pedido.idPedido!=0)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
         else
