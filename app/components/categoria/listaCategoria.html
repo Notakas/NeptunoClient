@@ -8,13 +8,12 @@
             </tr>
             <tr ng-repeat="categoria in listaCategoria|filter:{nombreCategoria:filtro}">
                 <td>{{categoria.idCategoria}}</td>
-                <td>{{cliente.nombreCategoria}}</td>
-                <td>{{cliente.descripcion}}</td>
-                <td><a ng-href="/modificarCategoria/{{categoria.idCategoria}}">Editar</a></td>
+                <td>{{categoria.nombreCategoria}}</td>
+                <td>{{categoria.descripcion}}</td>
+                <td><a ng-href="#!/modificarCategoria/{{categoria.idCategoria}}">Editar</a></td>
             </tr>
         </table>
-        <form action="/añadirCategoria">
+        <form action="#!/añadirCategoria">
             <input type="submit" value="Añadir Nuevo" />
         </form>
     </div>
-<script src="categoria.js" />

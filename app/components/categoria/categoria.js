@@ -1,7 +1,7 @@
 var app = angular.module('neptunoApp');
 app.controller('CtrlListaCategoria', ['$scope', '$http', function ($scope, $http) {
      $scope.listaCategoria = [];
-         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategoria', []);
+         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []);
          promise.then(function(data, status, headers, config) {
          $scope.listaCategoria = data.data;
          }), function(error) {
