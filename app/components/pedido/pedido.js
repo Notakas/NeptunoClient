@@ -9,7 +9,7 @@ var app = angular.module('neptunoApp');
             };
 }]);
 
-app.controller('CtrlGuardarPedido', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$location', function($scope, $http, $routeParams ,$location){
     run();
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
     

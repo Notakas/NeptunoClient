@@ -1,5 +1,5 @@
 var app = angular.module("neptunoApp");
-app.controller("CtrlLogin",[ '$scope', '$http', function($scope, $http){
+app.controller("CtrlLogin",[ '$scope', '$http', '$location', function($scope, $http, $location){
 	$scope.login = function() { 
 	
 	var data = {
@@ -14,5 +14,6 @@ app.controller("CtrlLogin",[ '$scope', '$http', function($scope, $http){
 			}), function(error) {     
 				alert( "Error: " + JSON.stringify({error: error}));  
 		};
+		$location.path("")
 	  };
 }]);

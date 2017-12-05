@@ -9,7 +9,7 @@ app.controller('CtrlListaCliente', ['$scope', '$http', function ($scope, $http) 
          };
 }]);
 
-app.controller('CtrlGuardarCliente', ['$scope', '$http','$routeParams', function ($scope, $http, $routeParams) {
+app.controller('CtrlGuardarCliente', ['$scope', '$http','$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
 
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verCliente/'+$routeParams.id);
 
@@ -44,5 +44,6 @@ app.controller('CtrlGuardarCliente', ['$scope', '$http','$routeParams', function
             }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
         };
+        $location.path("listaCliente")
     };
 }]);
