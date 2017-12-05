@@ -28,12 +28,12 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', functio
 
         var producto=new Object();
 
-        producto.nombreProducto;
-        producto.idProducto;
-        producto.descripcionProducto;
-        producto.precioVentaProducto;
-        producto.precioCompraProducto;
-        producto.existenciasProducto;
+        producto.nombreProducto=$scope.nombreProducto;
+        producto.idProducto=$scope.idProducto;
+        producto.descripcionProducto=$scope.descripcionProducto;
+        producto.precioVentaProducto=$scope.precioVentaProducto;
+        producto.precioCompraProducto=$scope.precioCompraProducto;
+        producto.existenciasProducto=$scope.existenciasProducto;
         if (producto.idProducto!=null)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateProducto',producto);
         else
