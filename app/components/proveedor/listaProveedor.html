@@ -5,6 +5,7 @@
             <tr>
                 <th>Id Proveedor</th>
                 <th>Proveedor</th>
+                <th>Dirección</th>
                 <th>Ciudad</th>
                 <th>Codigo Postal</th>
                 <th>Pais</th>
@@ -13,6 +14,7 @@
             <tr ng-repeat="proveedor in listaProveedor|filter:{nombreProveedor:filtro}">
                 <td>{{proveedor.idProveedor}}</td>
                 <td>{{proveedor.nombreProveedor}}</td>
+                <td>{{proveedor.direccionProveedor}}</td>
                 <td>{{proveedor.ciudad}}</td>
                 <td>{{proveedor.codigoPostal}}</td>
                 <td>{{proveedor.pais}}</td>

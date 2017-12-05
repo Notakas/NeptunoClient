@@ -17,7 +17,7 @@ app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', '$loca
         categoria = data.data;
         $scope.nombreCategoria=categoria.nombreCategoria,
         $scope.idCategoria=categoria.idCategoria,
-        $scope.descripcionCategoria=categoria.descripcionCategoria;
+        $scope.descripcionCategoria=categoria.descripcion;
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
@@ -26,7 +26,7 @@ app.controller('CtrlGuardarCategoria', ['$scope', '$http','$routeParams', '$loca
         var categoria=new Object();
         categoria.nombreCategoria=$scope.nombreCategoria;
         categoria.idCategoria=$scope.idCategoria;
-        categoria.descripcionCategoria=$scope.descripcionCategoria;
+        categoria.descripcion=$scope.descripcionCategoria;
         if (categoria.idCategoria!=null)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateCategoria',categoria);
         else

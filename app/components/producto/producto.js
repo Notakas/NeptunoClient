@@ -19,21 +19,30 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         $scope.idProducto=producto.idProducto;
         $scope.descripcionProducto=producto.descripcion;
         $scope.precioVentaProducto=producto.precioVenta;
-        $scope.precioCompraProducto=producto.precioCompraProducto;
-        $scope.existenciasProducto=producto.existenciasProducto;
+        $scope.precioCompraProducto=producto.precioCompra;
+        $scope.existenciasProducto=producto.existencias;
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
+
+    promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []);
+    promise.then(function(data, status, headers, config){
+        $scope.categorias = data.data;
+    }), function(error) {
+        alert( "Error: " + JSON.stringify({error: error}));
+    };
+    
     $scope.guardarProducto = function () {
 
         var producto=new Object();
 
         producto.nombreProducto=$scope.nombreProducto;
         producto.idProducto=$scope.idProducto;
-        producto.descripcionProducto=$scope.descripcionProducto;
-        producto.precioVentaProducto=$scope.precioVentaProducto;
-        producto.precioCompraProducto=$scope.precioCompraProducto;
-        producto.existenciasProducto=$scope.existenciasProducto;
+        producto.descripcion=$scope.descripcionProducto;
+        producto.idCategoria=$scope.idCategoria;
+        producto.precioVenta=$scope.precioVentaProducto;
+        producto.precioCompra=$scope.precioCompraProducto;
+        producto.existencias=$scope.existenciasProducto;
         if (producto.idProducto!=null)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateProducto',producto);
         else

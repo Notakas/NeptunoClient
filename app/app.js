@@ -57,7 +57,7 @@ controller: 'CtrlLogin'
     templateUrl: 'app/components/pedido/guardarPedido.html',
     controller: 'CtrlGuardarPedido'
 }).when('/modificarCategoria/:id', {
-    templateUrl: 'app/components/producto/guardarCategoria.html',
+    templateUrl: 'app/components/categoria/guardarCategoria.html',
     controller: 'CtrlGuardarCategoria'
 });
 $locationProvider.html5Mode(false).hashPrefix('!');

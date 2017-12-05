@@ -4,9 +4,10 @@
 			Nombre: <input type="text" ng-model="nombreCategoria" value="{{categoria.nombreCategoria}}" required/>
     	</div>
     	<div>
-    		Descripción: <input type="text" ng-model="descripcionCategoria" value="{{categoria.descripcion}}" required/>
+    		Descripción: <input type="text" ng-model="descripcionCategoria" value="{{categoria.descripcionCategoria}}" required/>
     	</div>
-            <input type="hidden" ng-model="idCategoria" required/>
+        <div>
+            <input type="text" ng-model="idCategoria" required/>
         </div>
     	<div>
             <input ng-click="guardarCategoria()" type="button" value="Guardar Categoría">
