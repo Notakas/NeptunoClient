@@ -10,7 +10,7 @@ app.controller('CtrlListaCliente', ['$scope', '$http', function ($scope, $http, 
 }]);
 
 app.controller('CtrlGuardarCliente', ['$scope', '$http', function ($scope, $http) {
-    var promise = $http.post('http://localhost:8080/TiendaNeptuno/verCliente/1', []);
+    var promise = $http.post('http://192.168.43.73:8080/TiendaNeptuno/verCliente/1', []);
     promise.then(function (data, status, headers, config) {
         
     }), function (error) {
@@ -27,8 +27,13 @@ app.controller('CtrlGuardarCliente', ['$scope', '$http', function ($scope, $http
         "telefono": $scope.telefonoCliente
     }
 
+
     $scope.submit = function () {
-        var promise = $http.post('listaCliente', cliente);
+        var promise;
+        if (cliente.idProveedor!=null)
+        promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateCliente',cliente);
+        else
+        promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addCliente',cliente);
         promise.then(function (data, status, headers, config) {
         }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
