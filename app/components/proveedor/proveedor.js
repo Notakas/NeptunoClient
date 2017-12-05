@@ -40,6 +40,8 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', functi
         promise.then(function (data, status, headers, config) {   
         }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
+            $location.path("/TiendaNeptuno/listaProveedor")
         };
+        $location.path("/TiendaNeptuno/listaProveedor")
     };
 }]);
