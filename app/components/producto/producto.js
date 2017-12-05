@@ -25,9 +25,13 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         alert( "Error: " + JSON.stringify({error: error}));
     };
 
-    promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []){
+    promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []);
+    promise.then(function(data, status, headers, config){
         $scope.categorias = data.data;
-    }
+    }), function(error) {
+        alert( "Error: " + JSON.stringify({error: error}));
+    };
+    
     $scope.guardarProducto = function () {
 
         var producto=new Object();

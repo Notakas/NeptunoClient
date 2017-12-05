@@ -4,7 +4,7 @@
         <tr>
             <th>Id producto</th>
             <th>Id Proveedor</th>
-            <th>Id Categoria</th>
+            <th>Categoria</th>
             <th>Nombre Producto</th>
             <th>Descripcion</th>
             <th>Precio de venta</th>
@@ -14,7 +14,7 @@
         <tr ng-repeat="producto in listaProducto|filter:{nombreProducto:filtro}">
             <td>{{producto.idProducto}}</td>
             <td>{{producto.proveedor.idProveedor}}</td>
-            <td>{{producto.categoria.idCategoria}}</td>
+            <td>{{producto.categoria.nombreCategoria}}</td>
             <td>{{producto.nombreProducto}}</td>
             <td>{{producto.descripcion}}</td>
             <td>{{producto.precioVenta}}</td>
