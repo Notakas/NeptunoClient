@@ -11,8 +11,9 @@
                 <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes track by cliente.cif"></select>
             </div>
             <div>
-                <input type="text" ng-model="estadoPedido" value="{{pedido.estadoPedido}}" readonly required/>
-                <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
+                <select ng-model="estadoPedido">
+                    <option ng-repeat="estado in estados" ng-selected="{{estado == estadoPedido}}">{{estado}}</option>
+                </select>
             </div>
             <div>
                 <input type="text" ng-model="destinatarioPedido" placeholder="Destinatario" value="{{pedido.destinatario}}" required/>

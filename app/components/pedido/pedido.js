@@ -11,6 +11,18 @@ var app = angular.module('neptunoApp');
 
 app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$location', function($scope, $http, $routeParams ,$location){
     run();
+    $scope.estados=[];
+    var estado1="EN-PREPARACION";
+    var estado2="LISTO";
+    var estado3="ENVIADO";
+    var estado4="ENTREGADO";
+    $scope.estados.push(estado1);
+    $scope.estados.push(estado2);
+    $scope.estados.push(estado3);
+    $scope.estados.push(estado4);
+
+    
+
     $scope.listaEmpleado = [];
     var pedido;
     var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaEmpleados/', []);
@@ -29,8 +41,6 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
     };
     if(!($routeParams.id==null)){
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
-    $scope.estadoPedido="En preparacion";
-    $scope.mensaje="listo";
         promise.then(function(data, status, headers, config) {
             pedido = data.data;
             $scope.idPedido=pedido.idPedido;
@@ -65,6 +75,7 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
             }
             $scope.listado = listalineas;
             $scope.precioFinal = pedido.importeTotal;
+            $scope.estadoPedido=pedido.estadoPedido;
         }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
         };
@@ -104,8 +115,6 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
         pedido.lineasPedido=nuevolistado;
         pedido.importeTotal=parseFloat($scope.precioFinal);
         if (pedido.idPedido==null ){
-            $scope.estadoPedido="En preparacion";
-            $scope.mensaje="listo";
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
         }
         else{
@@ -276,7 +285,6 @@ function run() {
         });
 
         f5.dispatchEvent(event);
-        
-        
+         
     };
 }
