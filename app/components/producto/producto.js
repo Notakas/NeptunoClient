@@ -21,6 +21,8 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         $scope.precioVentaProducto=producto.precioVenta;
         $scope.precioCompraProducto=producto.precioCompra;
         $scope.existenciasProducto=producto.existencias;
+        $scope.categoria=producto.categoria;
+        $scope.proveedor=producto.proveedor;
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
@@ -32,6 +34,14 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         alert( "Error: " + JSON.stringify({error: error}));
     };
 
+    promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaProveedores', []);
+    promise.then(function(data, status, headers, config){
+        $scope.proveedores = data.data;
+    }), function(error) {
+        alert( "Error: " + JSON.stringify({error: error}));
+    };
+
+
     $scope.guardarProducto = function () {
 
         var producto=new Object();
@@ -39,9 +49,10 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         producto.nombreProducto=$scope.nombreProducto;
         producto.idProducto=$scope.idProducto;
         producto.descripcion=$scope.descripcionProducto;
-        producto.idCategoria=$scope.idCategoria;
-        producto.precioVenta=$scope.precioVentaProducto;
-        producto.precioCompra=$scope.precioCompraProducto;
+        producto.categoria=$scope.categoria;
+        producto.proveedor=$scope.proveedor;
+        producto.precioVenta=parseFloat($scope.precioVentaProducto);
+        producto.precioCompra=parseFloat($scope.precioCompraProducto);
         producto.existencias=$scope.existenciasProducto;
         if (producto.idProducto!=null)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateProducto',producto);
