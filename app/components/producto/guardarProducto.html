@@ -1,19 +1,19 @@
 <div ng-controller="CtrlGuardarProducto">
     <form>
     	<div>
-    		Nombre: <input type="text" ng-model="nombreProducto" value="{{producto.nombreProducto}}" required/>
+    		Nombre: <input type="text" ng-model="nombreProducto" value="{{producto.nombreProducto}}" required></input>
     	</div>
     	<div>
-    		Descripción: <input type="text" ng-model="descripcionProducto" value="{{producto.descripcion}}" required/>
+    		Descripción: <input type="text" ng-model="descripcionProducto" value="{{producto.descripcion}}" required></input>
     	</div>
         <div>
-            Precio de Venta: <input type="text" ng-model="precioVentaProducto" value="{{producto.precioVentaProducto}}" required/>
+            Precio de Venta: <input type="text" ng-model="precioVentaProducto" value="{{producto.precioVentaProducto}}" required></input>
         </div>
         <div>
-            Precio de Compra: <input type="text" ng-model="precioCompraProducto" value="{{producto.precioCompraProducto}}" required/>
+            Precio de Compra: <input type="text" ng-model="precioCompraProducto" value="{{producto.precioCompraProducto}}" required></input>
         </div>
         <div>
-            Existencias: <input type="text" ng-model="existenciasProducto" value="{{producto.existencias}}" required/>
+            Existencias: <input type="text" ng-model="existenciasProducto" value="{{producto.existencias}}" required></input>
         </div>
         <div>
             Categoría: <select ng-model="categoria">
@@ -21,11 +21,12 @@
               </select>
         </div>
         <div>
-            <input type="hidden" ng-model="idProducto" required/>
+            <input type="hidden" ng-model="idProducto" required></input>
         </div>
     	<div>
-            <input ng-click="guardarProducto()" type="button" value="Guardar Producto">
-        </div>
-       
+
+            <input ng-click="guardarProducto()" type="button" value="Guardar Producto"></input>
+    	</div>
+
     </form>
 </div>
