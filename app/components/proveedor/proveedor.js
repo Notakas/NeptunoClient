@@ -17,7 +17,7 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', '$loca
     promise.then(function(data, status, headers, config) {
         proveedor = data.data;
         $scope.nombreProveedor=proveedor.nombreProveedor;
-        $scope.direccionProveedor=proveedor.direccionProveedor;
+        $scope.direccionProveedor=proveedor.direccion;
         $scope.ciudadProveedor=proveedor.ciudad;
         $scope.idProveedor=proveedor.idProveedor;
         $scope.codigoPostalProveedor=proveedor.codigoPostal;
@@ -30,7 +30,7 @@ app.controller('CtrlGuardarProveedor', ['$scope', '$http','$routeParams', '$loca
     $scope.guardarProveedor = function () {
         var proveedor=new Object();
         proveedor.nombreProveedor=$scope.nombreProveedor;
-        proveedor.direccionProveedor=$scope.direccionProveedor;
+        proveedor.direccion=$scope.direccionProveedor;
         proveedor.ciudad=$scope.ciudadProveedor;
         proveedor.codigoPostal=$scope.codigoPostalProveedor;
         proveedor.idProveedor=$scope.idProveedor;
