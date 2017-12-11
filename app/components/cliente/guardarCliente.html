@@ -1,5 +1,8 @@
 <div ng-controller="CtrlGuardarCliente">
     <form>
+        <div>
+            <input type="text" placeholder="CIF" ng-model="cifCliente" value="{{cliente.cif}}" required/>
+        </div>
     	<div>
     		<input type="text" placeholder="Nombre" ng-model="nombrePersonaCliente" value="{{cliente.nombrePersona}}" required/>
     	</div>
@@ -18,9 +21,7 @@
         <div>
             <input type="text" placeholder="Teléfono" ng-model="telefonoCliente" value="{{cliente.telefono}}" required/>
         </div>
-        <div>
-            <input type="hidden" ng-model="cifCliente" required/>
-        </div>
+
     	<div>
             <input ng-click="guardarCliente()" type="button" value="Guardar Cliente">
     	</div>

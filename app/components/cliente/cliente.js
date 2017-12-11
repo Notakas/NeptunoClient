@@ -15,28 +15,28 @@ app.controller('CtrlGuardarCliente', ['$scope', '$http','$routeParams', '$locati
 
     promise.then(function(data, status, headers, config) {
         cliente = data.data;
-        $scope.cifCliente=cliente.cifCliente,
-        $scope.nombreEmpresaCliente=cliente.nombreEmpresaCliente,
-        $scope.nombrePersonaCliente=cliente.nombrePersonaCliente,
-        $scope.direccionCliente=cliente.direccionCliente,
-        $scope.codigoPostalCliente=cliente.codigoPostalCliente,
-        $scope.paisCliente=cliente.paisCliente,
-        $scope.telefonoCliente=cliente.telefonoCliente;
+        $scope.cifCliente=cliente.cif,
+        $scope.nombreEmpresaCliente=cliente.nombreEmpresa,
+        $scope.nombrePersonaCliente=cliente.nombrePersona,
+        $scope.direccionCliente=cliente.direccion,
+        $scope.codigoPostalCliente=cliente.codigoPostal,
+        $scope.paisCliente=cliente.pais,
+        $scope.telefonoCliente=cliente.telefono;
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
     $scope.guardarCliente = function () {
 
         var cliente=new Object();
-        cliente.cifCliente=$scope.cifCliente;
-        cliente.nombreEmpresaCliente=$scope.nombreEmpresaCliente;
-        cliente.nombrePersonaCliente=$scope.nombrePersonaCliente;
-        cliente.direccionCliente=$scope.direccionCliente;
-        cliente.codigoPostalCliente=$scope.codigoPostalCliente;
-        cliente.paisCliente=$scope.paisCliente;
-        cliente.telefonoCliente=$scope.telefonoCliente;
+        cliente.cif=$scope.cifCliente;
+        cliente.nombreEmpresa=$scope.nombreEmpresaCliente;
+        cliente.nombrePersona=$scope.nombrePersonaCliente;
+        cliente.direccion=$scope.direccionCliente;
+        cliente.codigoPostal=$scope.codigoPostalCliente;
+        cliente.pais=$scope.paisCliente;
+        cliente.telefono=$scope.telefonoCliente;
 
-        if (cliente.cifCliente!=null)
+        if (cliente.cif!=null)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateCliente',cliente);
         else
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addCliente',cliente);
