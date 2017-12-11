@@ -57,18 +57,24 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
         var nuevolistado = [];
         for (i=0;i<$scope.listado.length;i++){
             var lineapedidon = new Object();
-            lineapedidon.cantidad=$scope.listado[i].cantidad;
-            lineapedidon.descuento=$scope.listado[i].descuento;
-            lineapedidon.precioUnidad=$scope.listado[i].precioVenta;
+            lineapedidon.cantidad=parseInt($scope.listado[i].cantidad);
+            lineapedidon.descuento=parseFloat($scope.listado[i].descuento);
+            lineapedidon.precioUnidad=parseFloat($scope.listado[i].precioVenta);
             var producton = new Object();
-            producton.idProducto = $scope.listado[i].idProducto;
+            producton.idProducto =parseInt($scope.listado[i].idProducto);
+            var categorian = new Object();
+            categorian.idCategoria = parseInt($scope.listado[i].idCategoria) //QUEDA POR OBTENER EL ID DE CATEGORIA
+            var proveedorn = new Object();
+            proveedorn.idProveedor = parseInt($scope.listado[i].idProveedor) //QUEDA POR OBTENER EL ID DE PROVEEDOR
+            producton.categoria = categorian;
+            producton.proveedor = proveedorn;
             lineapedidon.producto = producton;
 
             nuevolistado.push(lineapedidon);
         }
 
         pedido.lineasPedido=nuevolistado;
-        pedido.importeTotal=$scope.precioFinal;
+        pedido.importeTotal=parseFloat($scope.precioFinal);
         if (pedido.idPedido!=null ||pedido.idPedido!=0)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
         else
@@ -119,6 +125,8 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
             "nombreProducto":$scope.nombreProducto,
             "cantidad":$scope.cantidad,
             "descuento":$scope.descuento,
+            "idCategoria":$scope.idCategoria,
+            "idProveedor":$scope.idProveedor,
             "precioVenta":precioAux
             }
     
@@ -166,6 +174,8 @@ function run() {
         var f1 = document.getElementById('idProducto');
         var f2 = document.getElementById('nombreProducto');
         var f3 = document.getElementById('precioVenta');
+        var f4 = document.getElementById('idCategoria');
+        var f5 = document.getElementById('idProveedor');
         
         
         f1.value = cells[0].innerHTML;
@@ -209,6 +219,33 @@ function run() {
         
         f3.dispatchEvent(event);
 
+        f4.value = cells[3].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f4.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f4.dispatchEvent(event);
+
+        f5.value = cells[4].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f5.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f5.dispatchEvent(event);
         
         
     };

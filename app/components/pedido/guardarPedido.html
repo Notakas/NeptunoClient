@@ -39,6 +39,8 @@
                             <th>idProducto</th>
                             <th>nombreProducto</th>
                             <th>precioVenta</th>
+                            <th>idCategoria</th>
+                            <th>idProveedor</th>
                             <th>existencias</th>
                         </tr>
                     </thead>
@@ -47,6 +49,8 @@
                             <td>{{producto.idProducto}}</td>
                             <td>{{producto.nombreProducto}}</td>
                             <td>{{producto.precioVenta}}</td>
+                            <td>{{producto.categoria.idCategoria}}</td>
+                            <td>{{producto.proveedor.idProveedor}}</td>
                             <td>{{producto.existencias}}</td>
                         </tr>
                     </tbody>
@@ -57,6 +61,8 @@
                     <input type="text" id="nombreProducto" ng-model="nombreProducto"/>
                     <br>Precio:
                     <input type="text" id="precioVenta" ng-model="precioVenta" />
+                    <input ng-hide="true" type="text" id="idCategoria" ng-model="idCategoria" />
+                    <input ng-hide="true" type="text" id="idProveedor" ng-model="idProveedor" />
                     <br>cantidad:
                     <input type="text" id="cantidad" ng-model="cantidad" />
                     <br>descuento:
