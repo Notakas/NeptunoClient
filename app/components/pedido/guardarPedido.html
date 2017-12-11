@@ -5,10 +5,10 @@
                 <input ng-hide="true" type="text" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
             <div>
-                <select ng-model="dniCreacionPedido" ng-options="empleado.dni for empleado in listaEmpleado"></select>
+                <select ng-model="dniCreacionPedido" ng-options="empleado.dni for empleado in listaEmpleado track by empleado.dni" ></select>
             </div>
             <div>
-                <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes"></select>
+                <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes track by cliente.cif"></select>
             </div>
             <div>
                 <input type="text" ng-model="estadoPedido" value="{{pedido.estadoPedido}}" readonly required/>
