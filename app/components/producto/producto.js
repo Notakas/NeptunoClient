@@ -24,6 +24,14 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
+
+    promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []);
+    promise.then(function(data, status, headers, config){
+        $scope.categorias = data.data;
+    }), function(error) {
+        alert( "Error: " + JSON.stringify({error: error}));
+    };
+
     $scope.guardarProducto = function () {
 
         var producto=new Object();
@@ -31,6 +39,7 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         producto.nombreProducto=$scope.nombreProducto;
         producto.idProducto=$scope.idProducto;
         producto.descripcion=$scope.descripcionProducto;
+        producto.idCategoria=$scope.idCategoria;
         producto.precioVenta=$scope.precioVentaProducto;
         producto.precioCompra=$scope.precioCompraProducto;
         producto.existencias=$scope.existenciasProducto;

@@ -15,12 +15,18 @@
         <div>
             Existencias: <input type="text" ng-model="existenciasProducto" value="{{producto.existencias}}" required></input>
         </div>
-
+        <div>
+            Categoría: <select ng-model="idCategoria">
+                <option ng-repeat="categoria in categorias" value="{{categoria.idCategoria}}">{{categoria.nombreCategoria}}</option>
+              </select>
+        </div>
         <div>
             <input type="hidden" ng-model="idProducto" required></input>
         </div>
     	<div>
+
             <input ng-click="guardarProducto()" type="button" value="Guardar Producto"></input>
     	</div>
+
     </form>
 </div>
