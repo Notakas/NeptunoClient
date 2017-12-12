@@ -38,18 +38,28 @@
         </div>
         <div id="addProducto">
             <input ng-hide="true" type="text" id="idProducto" ng-model="idProducto" />
-            <label>Producto</label>
-            <input type="text" id="nombreProducto" ng-model="nombreProducto" />
-            <label>Precio</label>
-            <input type="text" id="precioVenta" ng-model="precioVenta" />
             <input ng-hide="true" type="text" id="idCategoria" ng-model="idCategoria" />
             <input ng-hide="true" type="text" id="idProveedor" ng-model="idProveedor" />
-            <label>Cantidad</label>
-            <input type="text" id="cantidad" ng-model="cantidad" />
-            <label>Descuento</label>
-            <input type="text" id="descuento" ng-model="descuento" />
+            <div>
+                <label>Producto</label>
+                <input type="text" id="nombreProducto" ng-model="nombreProducto" />
+            </div>
+            <div>
+                <label>Precio</label>
+                <input type="text" id="precioVenta" ng-model="precioVenta" />
+            </div>
+            <div>
+                <label>Cantidad</label>
+                <input type="text" id="cantidad" ng-model="cantidad" />
+            </div>
+            <div>
+                <label>Descuento</label>
+                <input type="text" id="descuento" ng-model="descuento" />
+            </div>
 
-            <button id="anadirProducto" ng-click="Add()">Añadir al pedido</button>
+            <div>
+                <button id="anadirProducto" ng-click="Add()">Añadir al pedido</button>
+            </div>
 
             <div>
                 <table id="tablita">
