@@ -43,6 +43,7 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
         promise.then(function(data, status, headers, config) {
             pedido = data.data;
+            $scope.tienedni=pedido.empleado.dni!=null;
             $scope.idPedido=pedido.idPedido;
             for (i=0;i<$scope.listaEmpleado.length;i++){
                 if ($scope.listaEmpleado[i].dni == pedido.empleado.dni)
@@ -114,11 +115,11 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
 
         pedido.lineasPedido=nuevolistado;
         pedido.importeTotal=parseFloat($scope.precioFinal);
-        if (pedido.idPedido==null ){
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
+        if ($scope.tienedni){
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
         }
         else{
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
         }
         promise.then(function (data, status, headers, config) {
         }), function (error) {
