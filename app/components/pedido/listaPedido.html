@@ -1,5 +1,8 @@
 <div ng-controller="CtrlListaPedido">
-        <input type="text" placeholder="Pedido a buscar" ng-model="filtro">
+    <input type="text" placeholder="Pedido a buscar" ng-model="filtro">
+    <form action="#!/añadirPedido">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
     <table>
         <tr>
             <th>Id pedido</th>
@@ -28,17 +31,10 @@
             <td>{{pedido.codigoPostal}}</td>
             <td>{{pedido.pais}}</td>
             <td>{{pedido.fechaModificacion}}</td>
-
-            <!--<td><p ng-repeat="linea in pedido.lineasPedido">
-                {{linea.producto.nombreProducto}}
-               </p>
-            </td>-->
-            <td><a ng-href="#!/modificarPedido/{{pedido.idPedido}}">Editar</a></td>
-
-       <!-- <td><button ng-click="modificarPedido(pedido.idPedido)">AAAA</button></td> -->
+            <td>
+                <a ng-href="#!/modificarPedido/{{pedido.idPedido}}">Editar</a>
+            </td>
         </tr>
     </table>
-    <form action="#!/añadirPedido">
-        <input type="submit" value="Añadir Nuevo" />
-    </form>
+
 </div>

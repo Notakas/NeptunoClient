@@ -1,5 +1,6 @@
 var app = angular.module("neptunoApp");
 app.controller("CtrlLogin",[ '$scope', '$http', '$location', function($scope, $http, $location){
+	$scope.mensaje = "";
 	$scope.login = function() { 
 	
 	var data = {

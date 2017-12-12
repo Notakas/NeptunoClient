@@ -1,19 +1,22 @@
 <div ng-controller="CtrlListaCategoria">
-       <input type="text" ng-model="filtro" placeholder="Categoria a buscar">
-        <table>
-            <tr>
-                <th>Id Categoria</th>
-                <th>Nombre Categoria</th>
-                <th colspan="2">Descripcion</th>
-            </tr>
-            <tr ng-repeat="categoria in listaCategoria|filter:{nombreCategoria:filtro}">
-                <td>{{categoria.idCategoria}}</td>
-                <td>{{categoria.nombreCategoria}}</td>
-                <td>{{categoria.descripcion}}</td>
-                <td><a ng-href="#!/modificarCategoria/{{categoria.idCategoria}}">Editar</a></td>
-            </tr>
-        </table>
-        <form action="#!/añadirCategoria">
-            <input type="submit" value="Añadir Nuevo" />
-        </form>
-    </div>
+    <input class="buscador" type="text" ng-model="filtro" placeholder="Categoria a buscar">
+    <form action="#!/añadirCategoria">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
+    <table>
+        <tr>
+            <th>Id Categoria</th>
+            <th>Nombre Categoria</th>
+            <th colspan="2">Descripcion</th>
+        </tr>
+        <tr ng-repeat="categoria in listaCategoria|filter:{nombreCategoria:filtro}">
+            <td>{{categoria.idCategoria}}</td>
+            <td>{{categoria.nombreCategoria}}</td>
+            <td>{{categoria.descripcion}}</td>
+            <td>
+                <a ng-href="#!/modificarCategoria/{{categoria.idCategoria}}">Editar</a>
+            </td>
+        </tr>
+    </table>
+
+</div>

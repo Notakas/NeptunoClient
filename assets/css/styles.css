@@ -1,15 +1,26 @@
+/*Login*/
+#mainLogin{
+    margin: 0px auto;
+    text-align: center;
+    width:30%;
+}
+
+#loginForm{
+    padding-top: 17px;
+}
+
+
 /*MENU*/
 nav{
 
     width: 100%;
     /*margin-left: 10%;*/
 
-    font-weight: bold;
 }
 nav ul {
-    background: linear-gradient(top, #FAFAFA 0%, #BDBDBD   80%);
-    background: -moz-linear-gradient(top, #FAFAFA 0%,#BDBDBD   80%);
-    background: -webkit-linear-gradient(top, #FAFAFA 0%,#BDBDBD 80%);
+    background: linear-gradient(top, rgb(207, 234, 250) 0%, rgb(126, 157, 177)   80%);
+    background: -moz-linear-gradient(top, rgb(207, 234, 250) 0%,rgb(126, 157, 177)   80%);
+    background: -webkit-linear-gradient(top, rgb(207, 234, 250) 0%,rgb(126, 157, 177)   80%);
     text-align: center;
     list-style-position: outside;
     font-family: Arial;
@@ -25,8 +36,8 @@ nav ul {
     	text-align: center;
         width: 16.1%;
         float: left;
-        padding: 2%;
-        font-size:20px;
+        padding: 1.1%;
+        font-size:15px;
         text-decoration: none;
         color: black;
     }
@@ -39,13 +50,14 @@ nav ul {
         color:white;
         display: block;
 	    color: #fff;
-        font-size:20px;
+        font-size:15px;
 	}
 
 /*TABLAS*/
 table{
     width:90%;
     margin-left: 5%;
+    border-radius: 4px;
 }
 table th {
     background-color: #097BBC;
@@ -71,7 +83,62 @@ table tr:nth-child(odd) {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-h4{
-    color: #097BBC;
-    text-align: center;
+
+/* Formularios guardar*/
+
+.buscador{
+    float:left;
+    border:1px solid whitesmoke;
+    border-radius: 4px;
+    margin-left:50px;
+    margin-bottom: 15px;
+    height: 40px;
+}
+
+.addButton{
+    float: right;
+    font-family: Verdana;
+    font-weight: bold;
+    border:none;
+    height:40px;
+    border-radius: 4px;
+    background-color: #097BBC;
+    color:whitesmoke;
+    margin-right: 50px;
+    margin-bottom: 15px;
+}
+
+label{
+    margin-bottom: 1.2em;
+    width: 13em;
+}
+
+select{
+    margin-bottom: 1.2em;
+}
+
+#addProducto{
+    float: right;
+    width:45%;
+}
+
+#contenedorAdd{
+    float:left;
+    width: 45%;
+}
+
+#tablita{
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    margin-left: 0px;
+}
+
+#anadirProducto{
+    margin-bottom: 1.2em;
+}
+
+#buscarPedido{
+    margin-left: 5%;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
 }

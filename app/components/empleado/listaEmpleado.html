@@ -1,31 +1,31 @@
 <div ng-controller="CtrlListaEmpleado">
-    <input type="text" placeholder="Empleado a buscar" ng-model="filtro">    
+    <form action="#!/añadirEmpleado">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
     <table>
-            <tr>
-                <th>DNI</th>
-                <th>Nombre Empleado</th>
-                <th>Apellidos</th>
-                <th>Cargo</th>
-                <th>Direccion</th>
-                <th>ciudad</th>
-                <th>Codigo Postal</th>
-                <th>Pais</th>
-                <th colspan="2">Telefono</th>
-            </tr>
-            <tr ng-repeat="empleado in listaEmpleado|filter:{nombreEmpleado:filtro}">
-                <td>{{empleado.dni}}</td>
-                <td>{{empleado.nombreEmpleado}}</td>
-                <td>{{empleado.apellidos}}</td>
-                <td>{{empleado.cargo}}</td>
-                <td>{{empleado.direccion}}</td>
-                <td>{{empleado.ciudad}}</td>
-                <td>{{empleado.codigoPostal}}</td>
-                <td>{{empleado.pais}}</td>
-                <td>{{empleado.telefono}}</td>
-                <td><a ng-href="#!/modificarEmpleado/{{empleado.dni}}">Editar</a></td>
-            </tr>
-        </table>
-        <form action="#!/añadirEmpleado">
-            <input type="submit" value="Añadir Nuevo" />
-        </form>
-    </div>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre Empleado</th>
+            <th>Apellidos</th>
+            <th>Cargo</th>
+            <th>Direccion</th>
+            <th>ciudad</th>
+            <th>Codigo Postal</th>
+            <th>Pais</th>
+            <th colspan="2">Telefono</th>
+        </tr>
+        <tr ng-repeat="empleado in listaEmpleado|filter:{nombreEmpleado:filtro}">
+            <td>{{empleado.dni}}</td>
+            <td>{{empleado.nombreEmpleado}}</td>
+            <td>{{empleado.apellidos}}</td>
+            <td>{{empleado.cargo}}</td>
+            <td>{{empleado.direccion}}</td>
+            <td>{{empleado.ciudad}}</td>
+            <td>{{empleado.codigoPostal}}</td>
+            <td>{{empleado.pais}}</td>
+            <td>{{empleado.telefono}}</td>
+            <td><a ng-href="#!/modificarEmpleado/{{empleado.dni}}">Editar</a></td>
+        </tr>
+    </table>
+
+</div>
