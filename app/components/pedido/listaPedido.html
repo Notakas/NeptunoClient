@@ -1,4 +1,5 @@
 <div ng-controller="CtrlListaPedido">
+    <input type="text" placeholder="Pedido a buscar" ng-model="filtro">
     <form action="#!/añadirPedido">
         <input class="addButton" type="submit" value="Añadir Nuevo" />
     </form>
@@ -18,7 +19,7 @@
             <th>Fecha modificación</th>
             <th>Editar</th>
         </tr>
-        <tr ng-repeat="pedido in listaPedidos">
+        <tr ng-repeat="pedido in listaPedidos|filter:{idPedido:filtro}">
             <td>{{pedido.idPedido}}</td>
             <td>{{pedido.empleado.dni}}</td>
             <td>{{pedido.cliente.cif}}</td>
