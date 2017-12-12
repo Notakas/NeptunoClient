@@ -5,33 +5,33 @@
                 <input ng-hide="true" type="text" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
             <div>
-                <label>Dni de Creacion</label><br>
+                <label>Dni de Creacion</label>
                 <select ng-model="dniCreacionPedido" ng-disabled="tienedni" ng-options="empleado.dni for empleado in listaEmpleado track by empleado.dni" ></select>
             </div>
             <div>
-                <label>Cif de Cliente</label><br>
+                <label>Cif de Cliente</label>
                 <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes track by cliente.cif"></select>
             </div>
             <div>
-                <label>Estado del pedido</label><br>
+                <label>Estado del pedido</label>
                 <select ng-model="estadoPedido">
                     <option ng-repeat="estado in estados" ng-selected="{{estado == estadoPedido}}">{{estado}}</option>
                 </select>
             </div>
             <div>
-                <label>Destinatario</label><br>
+                <label>Destinatario</label>
                 <input type="text" ng-model="destinatarioPedido" placeholder="Destinatario" value="{{pedido.destinatario}}" required/>
             </div>
             <div>
-                <label>Direccion de entrega</label><br>
+                <label>Direccion de entrega</label>
                 <input type="text" ng-model="direccionEntregaPedido" placeholder="Direccion de entrega" value="{{pedido.direccionEntrega}}" required/>
             </div>
             <div>
-                <label>Codigo Postal</label><br>
+                <label>Codigo Postal</label>
                 <input type="text" ng-model="codigoPostalPedido" placeholder="Codigo postal" value="{{pedido.codigoPostal}}" required/>
             </div>
             <div>
-                <label>Pais</label><br>
+                <label>Pais</label>
                 <input type="text" ng-model="paisPedido" placeholder="Pais" value="{{pedido.pais}}" required/>
             </div><br>
            <!-- <script type="text/javascript" src="js/app.js"></script>
