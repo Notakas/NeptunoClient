@@ -9,7 +9,7 @@ app.controller("CtrlLogin",[ '$scope', '$http', '$location', function($scope, $h
 				}
 
 	
-		var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno', data); 
+		var promise = $http.post('http://localhost:8080/TiendaNeptuno', data); 
 		promise.then(function(data, status, headers, config) { 
 			$scope.mensaje=data.data.Mensaje;
 			}), function(error) {     

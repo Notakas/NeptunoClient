@@ -3,8 +3,7 @@ var app = angular.module('neptunoControllers', []);
 app.config(['$routeProvider', '$locationProvider',
 function($routeProvider, $locationProvider) {
 $routeProvider.when('/', {
-templateUrl: 'app/components/login/login.html',
-controller: 'CtrlLogin'
+templateUrl: 'app/components/login/index.html',
 }).when('/listaProducto', {
     templateUrl: 'app/components/producto/listaProducto.html',
     controller: 'CtrlListaProducto'

@@ -1,7 +1,7 @@
 var app = angular.module('neptunoApp');
 app.controller('CtrlListaEmpleado', ['$scope', '$http', function ($scope, $http) {
      $scope.listaEmpleado = [];
-         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaEmpleados', []);
+         var promise = $http.post('http://localhost:8080/TiendaNeptuno/listaEmpleados', []);
          promise.then(function(data, status, headers, config) {
          $scope.listaEmpleado = data.data;
          }), function(error) {
@@ -11,7 +11,7 @@ app.controller('CtrlListaEmpleado', ['$scope', '$http', function ($scope, $http)
 
 app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$location', function($scope, $http, $routeParams, $location){
 
-    var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verEmpleado/'+$routeParams.id);
+    var promise = $http.get('http://localhost:8080/TiendaNeptuno/verEmpleado/'+$routeParams.id);
 
     promise.then(function(data, status, headers, config) {
         empleado = data.data;
@@ -44,9 +44,9 @@ app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$locat
         empleado.pais=$scope.paisEmpleado;
         empleado.telefono=$scope.telefonoEmpleado;
         if ($scope.tienedni)
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateEmpleado',empleado);
+            var promise = $http.post('http://localhost:8080/TiendaNeptuno/updateEmpleado',empleado);
         else
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addEmpleado',empleado);
+            var promise = $http.post('http://localhost:8080/TiendaNeptuno/addEmpleado',empleado);
             promise.then(function (data, status, headers, config) {
             }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));

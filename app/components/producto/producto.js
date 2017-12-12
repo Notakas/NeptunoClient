@@ -1,7 +1,7 @@
 var app = angular.module('neptunoApp');
 app.controller('CtrlListaProducto', ['$scope', '$http', function ($scope, $http) {
      $scope.listaProducto = [];
-         var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaProductos', []);
+         var promise = $http.post('http://localhost:8080/TiendaNeptuno/listaProductos', []);
          promise.then(function(data, status, headers, config) {
          $scope.listaProducto = data.data;
          }), function(error) {
@@ -11,20 +11,20 @@ app.controller('CtrlListaProducto', ['$scope', '$http', function ($scope, $http)
 
 app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$location', function($scope, $http, $routeParams, $location){
 
-        promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaCategorias', []);
+        promise = $http.post('http://localhost:8080/TiendaNeptuno/listaCategorias', []);
         promise.then(function(data, status, headers, config){
             $scope.categorias = data.data;
         }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
         };
 
-        promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaProveedores', []);
+        promise = $http.post('http://localhost:8080/TiendaNeptuno/listaProveedores', []);
         promise.then(function(data, status, headers, config){
             $scope.proveedores = data.data;
         }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
         };
-    var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verProducto/'+$routeParams.id);
+    var promise = $http.get('http://localhost:8080/TiendaNeptuno/verProducto/'+$routeParams.id);
 
     promise.then(function(data, status, headers, config) {
         producto = data.data;
@@ -65,9 +65,9 @@ app.controller('CtrlGuardarProducto', ['$scope', '$http','$routeParams', '$locat
         producto.precioCompra=parseFloat($scope.precioCompraProducto);
         producto.existencias=$scope.existenciasProducto;
         if (producto.idProducto!=null)
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateProducto',producto);
+            var promise = $http.post('http://localhost:8080/TiendaNeptuno/updateProducto',producto);
         else
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addProducto',producto);
+            var promise = $http.post('http://localhost:8080/TiendaNeptuno/addProducto',producto);
             promise.then(function (data, status, headers, config) {
             }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
