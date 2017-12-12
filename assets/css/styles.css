@@ -16,12 +16,11 @@ nav{
     width: 100%;
     /*margin-left: 10%;*/
 
-    font-weight: bold;
 }
 nav ul {
-    background: linear-gradient(top, #FAFAFA 0%, #BDBDBD   80%);
-    background: -moz-linear-gradient(top, #FAFAFA 0%,#BDBDBD   80%);
-    background: -webkit-linear-gradient(top, #FAFAFA 0%,#BDBDBD 80%);
+    background: linear-gradient(top, rgb(207, 234, 250) 0%, rgb(126, 157, 177)   80%);
+    background: -moz-linear-gradient(top, rgb(207, 234, 250) 0%,rgb(126, 157, 177)   80%);
+    background: -webkit-linear-gradient(top, rgb(207, 234, 250) 0%,rgb(126, 157, 177)   80%);
     text-align: center;
     list-style-position: outside;
     font-family: Arial;
@@ -37,8 +36,8 @@ nav ul {
     	text-align: center;
         width: 16.1%;
         float: left;
-        padding: 2%;
-        font-size:20px;
+        padding: 1.1%;
+        font-size:15px;
         text-decoration: none;
         color: black;
     }
@@ -51,7 +50,7 @@ nav ul {
         color:white;
         display: block;
 	    color: #fff;
-        font-size:20px;
+        font-size:15px;
 	}
 
 /*TABLAS*/
@@ -84,11 +83,7 @@ table tr:nth-child(odd) {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-h4{
-    color: #097BBC;
-    text-align: center;
-}
-  
+
 /* Formularios guardar*/
 
 .buscador{
@@ -111,4 +106,23 @@ h4{
     color:whitesmoke;
     margin-right: 50px;
     margin-bottom: 15px;
+}
+
+label{
+    margin-bottom: 1.2em;
+    width: 13em;
+}
+
+select{
+    margin-bottom: 1.2em;
+}
+
+#addProducto{
+    float: right;
+    width:45%;
+}
+
+#contenedorAdd{
+    float:left;
+    width: 45%;
 }
