@@ -116,10 +116,10 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
         pedido.lineasPedido=nuevolistado;
         pedido.importeTotal=parseFloat($scope.precioFinal);
         if ($scope.tienedni){
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
         }
         else{
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
         }
         promise.then(function (data, status, headers, config) {
         }), function (error) {
