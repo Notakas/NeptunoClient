@@ -16,9 +16,14 @@
             Existencias: <input type="text" ng-model="existenciasProducto" value="{{producto.existencias}}" required></input>
         </div>
         <div>
-            Categoría: <select ng-model="categoria">
-                <option ng-repeat="categoria in categorias" value="{{categoria}}">{{categoria.nombreCategoria}}</option>
-              </select>
+            Categoría: <select ng-model="categoria" ng-options="categoria.nombreCategoria for categoria in categorias"></select>
+                <!--<option ng-repeat="categoria in categorias" value="{{categoria}}">{{categoria.nombreCategoria}}</option>
+              </select>-->
+        </div>
+        <div>
+            Proveedor: <select ng-model="proveedor" ng-options="proveedor.nombreProveedor for proveedor in proveedores"></select>
+                <!--<option ng-repeat="categoria in categorias" value="{{categoria}}">{{categoria.nombreCategoria}}</option>
+              </select>-->
         </div>
         <div>
             <input type="hidden" ng-model="idProducto" required></input>

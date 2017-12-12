@@ -11,7 +11,20 @@ var app = angular.module('neptunoApp');
 
 app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$location', function($scope, $http, $routeParams ,$location){
     run();
+    $scope.estados=[];
+    var estado1="EN-PREPARACION";
+    var estado2="LISTO";
+    var estado3="ENVIADO";
+    var estado4="ENTREGADO";
+    $scope.estados.push(estado1);
+    $scope.estados.push(estado2);
+    $scope.estados.push(estado3);
+    $scope.estados.push(estado4);
+
+    
+
     $scope.listaEmpleado = [];
+    var pedido;
     var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/listaEmpleados/', []);
     promise.then(function(data, status, headers, config) {
     $scope.listaEmpleado = data.data;
@@ -26,24 +39,50 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
     }), function(error) {
     alert( "Error: " + JSON.stringify({error: error}));
     };
-
+    if(!($routeParams.id==null)){
     var promise = $http.get('http://192.168.43.73:8081/TiendaNeptuno/verPedido/'+$routeParams.id);
-    $scope.estadoPedido="En preparacion";
-    $scope.mensaje="listo";
         promise.then(function(data, status, headers, config) {
             pedido = data.data;
             $scope.idPedido=pedido.idPedido;
-            $scope.dniCreacionPedido=pedido.empleado.dni;
-            $scope.cifClientePedido=pedido.cliente.cif;
+            for (i=0;i<$scope.listaEmpleado.length;i++){
+                if ($scope.listaEmpleado[i].dni == pedido.empleado.dni)
+                $scope.dniCreacionPedido=$scope.listaEmpleado[i];
+
+            }
+            for (i=0;i<$scope.listaClientes.length;i++){
+                if ($scope.listaClientes[i].cif == pedido.cliente.cif)
+                $scope.cifClientePedido=$scope.listaClientes[i];
+
+            }
+
             $scope.estadoPedido=pedido.estadoPedido;
             $scope.destinatarioPedido=pedido.destinatario;
             $scope.direccionEntregaPedido=pedido.direccionEntrega;
             $scope.codigoPostalPedido=pedido.codigoPostal;
             $scope.paisPedido=pedido.pais;
+            var listalineas = [];
+            for (i=0;i<pedido.lineasPedido.length;i++){
+                var lineap = new Object();
+                lineap.idProducto=pedido.lineasPedido[i].producto.idProducto;
+                lineap.nombreProducto=pedido.lineasPedido[i].producto.nombreProducto;
+                lineap.cantidad=pedido.lineasPedido[i].cantidad;
+                lineap.descuento=pedido.lineasPedido[i].descuento;
+                lineap.importeTotal=pedido.lineasPedido[i].precioFinal;
+                lineap.idCategoria=pedido.lineasPedido[i].producto.categoria.idCategoria;
+                lineap.idProveedor=pedido.lineasPedido[i].producto.proveedor.idProveedor;
+                lineap.precioVenta=pedido.lineasPedido[i].precioUnidad;
+                listalineas.push(lineap);
+            }
+            $scope.listado = listalineas;
+            $scope.precioFinal = pedido.importeTotal;
+            $scope.estadoPedido=pedido.estadoPedido;
         }), function(error) {
             alert( "Error: " + JSON.stringify({error: error}));
         };
-    		
+
+
+
+    }		
     $scope.guardarPedido=function(){
         var pedido=new Object();
         pedido.idPedido=$scope.idPedido;
@@ -57,24 +96,30 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
         var nuevolistado = [];
         for (i=0;i<$scope.listado.length;i++){
             var lineapedidon = new Object();
-            lineapedidon.cantidad=$scope.listado[i].cantidad;
-            lineapedidon.descuento=$scope.listado[i].descuento;
-            lineapedidon.precioUnidad=$scope.listado[i].precioVenta;
+            lineapedidon.cantidad=parseInt($scope.listado[i].cantidad);
+            lineapedidon.descuento=parseFloat($scope.listado[i].descuento);
+            lineapedidon.precioUnidad=parseFloat($scope.listado[i].precioVenta);
             var producton = new Object();
-            producton.idProducto = $scope.listado[i].idProducto;
+            producton.idProducto =parseInt($scope.listado[i].idProducto);
+            var categorian = new Object();
+            categorian.idCategoria = parseInt($scope.listado[i].idCategoria) //QUEDA POR OBTENER EL ID DE CATEGORIA
+            var proveedorn = new Object();
+            proveedorn.idProveedor = parseInt($scope.listado[i].idProveedor) //QUEDA POR OBTENER EL ID DE PROVEEDOR
+            producton.categoria = categorian;
+            producton.proveedor = proveedorn;
             lineapedidon.producto = producton;
 
             nuevolistado.push(lineapedidon);
         }
 
         pedido.lineasPedido=nuevolistado;
-        pedido.importeTotal=$scope.precioFinal;
-        if (pedido.idPedido!=null ||pedido.idPedido!=0)
-            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
-        else
-        $scope.estadoPedido="En preparacion";
-        $scope.mensaje="listo";
+        pedido.importeTotal=parseFloat($scope.precioFinal);
+        if (pedido.idPedido==null ){
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addPedido',pedido);
+        }
+        else{
+            var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updatePedido',pedido);
+        }
         promise.then(function (data, status, headers, config) {
         }), function (error) {
             alert("Error: " + JSON.stringify({ error: error }));
@@ -119,6 +164,8 @@ app.controller("CtrlGuardarPedido",[ '$scope', '$http', '$routeParams' ,'$locati
             "nombreProducto":$scope.nombreProducto,
             "cantidad":$scope.cantidad,
             "descuento":$scope.descuento,
+            "idCategoria":$scope.idCategoria,
+            "idProveedor":$scope.idProveedor,
             "precioVenta":precioAux
             }
     
@@ -166,6 +213,8 @@ function run() {
         var f1 = document.getElementById('idProducto');
         var f2 = document.getElementById('nombreProducto');
         var f3 = document.getElementById('precioVenta');
+        var f4 = document.getElementById('idCategoria');
+        var f5 = document.getElementById('idProveedor');
         
         
         f1.value = cells[0].innerHTML;
@@ -209,7 +258,33 @@ function run() {
         
         f3.dispatchEvent(event);
 
-        
-        
+        f4.value = cells[3].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f4.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f4.dispatchEvent(event);
+
+        f5.value = cells[4].innerHTML;
+        var event = new Event('input', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f5.dispatchEvent(event);
+        var event = new Event('change', {
+            'bubbles': true,
+            'cancelable': true
+        });
+
+        f5.dispatchEvent(event);
+         
     };
 }

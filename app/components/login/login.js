@@ -15,6 +15,6 @@ app.controller("CtrlLogin",[ '$scope', '$http', '$location', function($scope, $h
 			}), function(error) {     
 				alert( "Error: " + JSON.stringify({error: error}));  
 		};
-		$location.path("")
+		$location.path("listaPedido")
 	  };
 }]);

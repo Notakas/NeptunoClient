@@ -5,14 +5,15 @@
                 <input ng-hide="true" type="text" ng-model="idPedido" value="{{pedido.idPedido}}" required/>
             </div>
             <div>
-                <select ng-model="dniCreacionPedido" ng-options="empleado.dni for empleado in listaEmpleado"></select>
+                <select ng-model="dniCreacionPedido" ng-options="empleado.dni for empleado in listaEmpleado track by empleado.dni" ></select>
             </div>
             <div>
-                <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes"></select>
+                <select ng-model="cifClientePedido" ng-options="cliente.cif for cliente in listaClientes track by cliente.cif"></select>
             </div>
             <div>
-                <input type="text" ng-model="estadoPedido" value="{{pedido.estadoPedido}}" readonly required/>
-                <button ng-click="cambiarEstado()">cambiar a {{mensaje}}</button>
+                <select ng-model="estadoPedido">
+                    <option ng-repeat="estado in estados" ng-selected="{{estado == estadoPedido}}">{{estado}}</option>
+                </select>
             </div>
             <div>
                 <input type="text" ng-model="destinatarioPedido" placeholder="Destinatario" value="{{pedido.destinatario}}" required/>
@@ -39,6 +40,8 @@
                             <th>idProducto</th>
                             <th>nombreProducto</th>
                             <th>precioVenta</th>
+                            <th>idCategoria</th>
+                            <th>idProveedor</th>
                             <th>existencias</th>
                         </tr>
                     </thead>
@@ -47,6 +50,8 @@
                             <td>{{producto.idProducto}}</td>
                             <td>{{producto.nombreProducto}}</td>
                             <td>{{producto.precioVenta}}</td>
+                            <td>{{producto.categoria.idCategoria}}</td>
+                            <td>{{producto.proveedor.idProveedor}}</td>
                             <td>{{producto.existencias}}</td>
                         </tr>
                     </tbody>
@@ -57,6 +62,8 @@
                     <input type="text" id="nombreProducto" ng-model="nombreProducto"/>
                     <br>Precio:
                     <input type="text" id="precioVenta" ng-model="precioVenta" />
+                    <input ng-hide="true" type="text" id="idCategoria" ng-model="idCategoria" />
+                    <input ng-hide="true" type="text" id="idProveedor" ng-model="idProveedor" />
                     <br>cantidad:
                     <input type="text" id="cantidad" ng-model="cantidad" />
                     <br>descuento:

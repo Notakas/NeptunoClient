@@ -15,6 +15,7 @@ app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$locat
 
     promise.then(function(data, status, headers, config) {
         empleado = data.data;
+        $scope.tienedni=empleado.dni!=null;
         $scope.dniEmpleado=empleado.dni;
         $scope.nombreEmpleado=empleado.nombreEmpleado;
         $scope.apellidosEmpleado=empleado.apellidos;
@@ -27,6 +28,8 @@ app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$locat
     }), function(error) {
         alert( "Error: " + JSON.stringify({error: error}));
     };
+
+
     $scope.guardarEmpleado = function () {
 
         var empleado=new Object();
@@ -40,7 +43,7 @@ app.controller('CtrlGuardarEmpleado', ['$scope', '$http','$routeParams', '$locat
         empleado.codigoPostal=$scope.codigoPostalEmpleado;
         empleado.pais=$scope.paisEmpleado;
         empleado.telefono=$scope.telefonoEmpleado;
-        if (empleado.dni!=null)
+        if ($scope.tienedni)
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/updateEmpleado',empleado);
         else
             var promise = $http.post('http://192.168.43.73:8081/TiendaNeptuno/addEmpleado',empleado);
