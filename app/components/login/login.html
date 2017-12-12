@@ -1,7 +1,18 @@
-<div ng-controller="CtrlLogin">
-     <label>Usuario:</label><input type="text" ng-model="dniEmpleado" />
-     <label>Contraseña</label><input type="password" ng-model="contrasena" />
-     <button ng-click="login()">Acceder</button>
+<div ng-controller="CtrlLogin" id="mainLogin">
+    <div id="loginForm">
+        <div>
+            <input type="text" ng-model="dniEmpleado" placeholder="Usuario" />
+        </div>
+        <br>
+        <div>
+            <input type="password" ng-model="contrasena" placeholder="Contraseña" />
+        </div>
+        <br>
+        <div>
+            <button ng-click="login()">Acceder</button>
+        </div>
+        <br>
+        <div>{{mensaje}}</div>
+    </div>
 
-	 {{mensaje}}
 </div>
