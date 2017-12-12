@@ -1,5 +1,8 @@
 <div ng-controller="CtrlListaProducto">
     <input type="text" placeholder="Producto a buscar" ng-model="filtro">
+    <form action="#!/añadirProducto">
+        <input class="addButton" class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
     <table>
         <tr>
             <th>Id producto</th>
@@ -23,7 +26,4 @@
             <td><a ng-href="#!/modificarProducto/{{producto.idProducto}}">Editar</a></td>
         </tr>
     </table>
-    <form action="#!/añadirProducto">
-        <input type="submit" value="Añadir Nuevo" />
-    </form>
 </div>

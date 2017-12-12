@@ -1,28 +1,30 @@
 <div ng-controller="CtrlListaCliente">
-    <input type="text" ng-model="filtro" placeholder="Cliente a buscar">
-        <table>
-            <tr>
-                <th>CIF</th>
-                <th>Nombre Empresa</th>
-                <th>Nombre Persona</th>
-                <th>Direccion</th>
-                <th>Codigo Postal</th>
-                <th>Pais</th>
-                <th>Telefono</th>
-                <th colspan="2">Existencias</th>
-            </tr>
-            <tr ng-repeat="cliente in listaCliente|filter:{nombreCliente:filtro}">
-                <td>{{cliente.cif}}</td>
-                <td>{{cliente.nombreEmpresa}}</td>
-                <td>{{cliente.nombrePersona}}</td>
-                <td>{{cliente.direccion}}</td>
-                <td>{{cliente.codigoPostal}}</td>
-                <td>{{cliente.pais}}</td>
-                <td>{{cliente.telefono}}</td>
-                <td><a ng-href="#!/modificarCliente/{{cliente.cif}}">Editar</a></td>
-            </tr>
-        </table>
-        <form action="#!/añadirCliente">
-            <input type="submit" value="Añadir Nuevo" />
-        </form>
-    </div>
+    <input type="text" class="buscador" ng-model="filtro" placeholder="Cliente a buscar">
+    <form action="#!/añadirCliente">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
+    <table>
+        <tr>
+            <th>CIF</th>
+            <th>Nombre Empresa</th>
+            <th>Nombre Persona</th>
+            <th>Direccion</th>
+            <th>Codigo Postal</th>
+            <th>Pais</th>
+            <th>Telefono</th>
+            <th colspan="2">Existencias</th>
+        </tr>
+        <tr ng-repeat="cliente in listaCliente|filter:{nombreCliente:filtro}">
+            <td>{{cliente.cif}}</td>
+            <td>{{cliente.nombreEmpresa}}</td>
+            <td>{{cliente.nombrePersona}}</td>
+            <td>{{cliente.direccion}}</td>
+            <td>{{cliente.codigoPostal}}</td>
+            <td>{{cliente.pais}}</td>
+            <td>{{cliente.telefono}}</td>
+            <td>
+                <a ng-href="#!/modificarCliente/{{cliente.cif}}">Editar</a>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,4 +1,7 @@
 <div ng-controller="CtrlListaPedido">
+    <form action="#!/añadirPedido">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>
     <table>
         <tr>
             <th>Id pedido</th>
@@ -32,12 +35,12 @@
                 {{linea.producto.nombreProducto}}
                </p>
             </td>-->
-            <td><a ng-href="#!/modificarPedido/{{pedido.idPedido}}">Editar</a></td>
+            <td>
+                <a ng-href="#!/modificarPedido/{{pedido.idPedido}}">Editar</a>
+            </td>
 
-       <!-- <td><button ng-click="modificarPedido(pedido.idPedido)">AAAA</button></td> -->
+            <!-- <td><button ng-click="modificarPedido(pedido.idPedido)">AAAA</button></td> -->
         </tr>
     </table>
-    <form action="#!/añadirPedido">
-        <input type="submit" value="Añadir Nuevo" />
-    </form>
+
 </div>

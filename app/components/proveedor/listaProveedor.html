@@ -1,7 +1,10 @@
 <div ng-controller="CtrlListaProveedor">
     <h4>Buscador de Proveedor</h4>
-    <input id="buscador_proveedor" type="text" ng-model="filtro" placeholder="Proveedor a buscar">
-        <table>
+    <input class="buscador" type="text" ng-model="filtro" placeholder="Proveedor a buscar">
+    <form action="#!/añadirProveedor">
+        <input class="addButton" type="submit" value="Añadir Nuevo" />
+    </form>    
+    <table>
             <tr>
                 <th>Id Proveedor</th>
                 <th>Proveedor</th>
@@ -22,7 +25,4 @@
                 <td><a ng-href="#!/modificarProveedor/{{proveedor.idProveedor}}">Editar</a></td>
             </tr>
         </table>
-        <form action="#!/añadirProveedor">
-            <input type="submit" value="Añadir Nuevo" />
-        </form>
     </div>
