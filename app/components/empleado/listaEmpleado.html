@@ -1,5 +1,6 @@
 <div ng-controller="CtrlListaEmpleado">
-        <table>
+    <input type="text" placeholder="Empleado a buscar" ng-model="filtro">    
+    <table>
             <tr>
                 <th>DNI</th>
                 <th>Nombre Empleado</th>
@@ -11,7 +12,7 @@
                 <th>Pais</th>
                 <th colspan="2">Telefono</th>
             </tr>
-            <tr ng-repeat="empleado in listaEmpleado">
+            <tr ng-repeat="empleado in listaEmpleado|filter:{nombreEmpleado:filtro}">
                 <td>{{empleado.dni}}</td>
                 <td>{{empleado.nombreEmpleado}}</td>
                 <td>{{empleado.apellidos}}</td>
