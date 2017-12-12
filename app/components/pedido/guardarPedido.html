@@ -49,10 +49,10 @@
             <label>Descuento</label>
             <input type="text" id="descuento" ng-model="descuento" />
 
-            <button ng-click="Add()">añadir</button>
+            <button id="anadirProducto" ng-click="Add()">Añadir al pedido</button>
 
             <div>
-                <table>
+                <table id="tablita">
                     <tr>
                         <th>idProducto</th>
                         <th>Nombre</th>
@@ -76,35 +76,42 @@
                     </tr>
                 </table>
             </div>
-        </div>
-        <div>
-            <input ng-click="guardarPedido()" type="button" value="Guardar Pedido">
+            <div>
+                <input id="guardarPedido" ng-click="guardarPedido()" type="button" value="Guardar Pedido">
+            </div>
         </div>
     </div>
-    <input type="text" placeholder="Producto a buscar" ng-model="buscar" />
+
     <div ng-show="loading">
         <img id="loadingWheel" src="app/components/pedido/image/Loading_icon.gif" />
     </div>
-    <table id="myTable" ng-show="tabla">
-        <thead>
-            <tr>
-                <th>idProducto</th>
-                <th>nombreProducto</th>
-                <th>precioVenta</th>
-                <th>idCategoria</th>
-                <th>idProveedor</th>
-                <th>existencias</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="producto in lista | filter:{nombreProducto:buscar}">
-                <td>{{producto.idProducto}}</td>
-                <td>{{producto.nombreProducto}}</td>
-                <td>{{producto.precioVenta}}</td>
-                <td>{{producto.categoria.idCategoria}}</td>
-                <td>{{producto.proveedor.idProveedor}}</td>
-                <td>{{producto.existencias}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <div>
+            <input id="buscarPedido" type="text" placeholder="Producto a buscar" ng-model="buscar" />
+        </div>
+        <div>
+            <table id="myTable" ng-show="tabla">
+                <thead>
+                    <tr>
+                        <th>idProducto</th>
+                        <th>nombreProducto</th>
+                        <th>precioVenta</th>
+                        <th>idCategoria</th>
+                        <th>idProveedor</th>
+                        <th>existencias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="producto in lista | filter:{nombreProducto:buscar}">
+                        <td>{{producto.idProducto}}</td>
+                        <td>{{producto.nombreProducto}}</td>
+                        <td>{{producto.precioVenta}}</td>
+                        <td>{{producto.categoria.idCategoria}}</td>
+                        <td>{{producto.proveedor.idProveedor}}</td>
+                        <td>{{producto.existencias}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

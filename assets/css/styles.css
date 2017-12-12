@@ -126,3 +126,19 @@ select{
     float:left;
     width: 45%;
 }
+
+#tablita{
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    margin-left: 0px;
+}
+
+#anadirProducto{
+    margin-bottom: 1.2em;
+}
+
+#buscarPedido{
+    margin-left: 5%;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+}
