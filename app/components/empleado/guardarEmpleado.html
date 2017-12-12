@@ -1,31 +1,31 @@
 <div ng-controller="CtrlGuardarEmpleado">
     <form>
     	<div>
-    		Nombre: <input type="text" ng-model="nombreEmpleado" value="{{empleado.nombreEmpleado}}" required></input>
+    		<label>Nombre:</label> <input type="text" ng-model="nombreEmpleado" value="{{empleado.nombreEmpleado}}" required></input>
     	</div>
         <div>
-    		Apellidos: <input type="text" ng-model="apellidosEmpleado" value="{{empleado.apellidos}}" required></input>
+    		<label>Apellidos:</label> <input type="text" ng-model="apellidosEmpleado" value="{{empleado.apellidos}}" required></input>
     	</div>
     	<div>
-    		Cargo: <input type="text" ng-model="cargoEmpleado" value="{{empleado.cargo}}" required></input>
+    		<label>Cargo:</label> <input type="text" ng-model="cargoEmpleado" value="{{empleado.cargo}}" required></input>
     	</div>
         <div>
-            Dirección: <input type="text" ng-model="direccionEmpleado" value="{{empleado.direccion}}" required></input>
+            <label>Dirección:</label> <input type="text" ng-model="direccionEmpleado" value="{{empleado.direccion}}" required></input>
         </div>
         <div>
-            Ciudad: <input type="text" ng-model="ciudadEmpleado" value="{{empleado.ciudad}}" required></input>
+            <label>Ciudad:</label> <input type="text" ng-model="ciudadEmpleado" value="{{empleado.ciudad}}" required></input>
         </div>
         <div>
-            Código Postal: <input type="text" ng-model="codigoPostalEmpleado" value="{{empleado.codigoPostal}}" required></input>
+            <label>Código Postal:</label> <input type="text" ng-model="codigoPostalEmpleado" value="{{empleado.codigoPostal}}" required></input>
         </div>
         <div>
-            País: <input type="text" ng-model="paisEmpleado" value="{{empleado.pais}}" required></input>
+            <label>País:</label> <input type="text" ng-model="paisEmpleado" value="{{empleado.pais}}" required></input>
         </div>
         <div>
-            Teléfono: <input type="text" ng-model="telefonoEmpleado" value="{{empleado.telefono}}" required></input>
+           <label>Teléfono:</label> <input type="text" ng-model="telefonoEmpleado" value="{{empleado.telefono}}" required></input>
         </div>
         <div>
-            DNI: <input type="text" ng-disabled="tienedni" ng-model="dniEmpleado" value="{{empleado.dni}}" required></input>
+            <label>DNI:</label> <input type="text" ng-disabled="tienedni" ng-model="dniEmpleado" value="{{empleado.dni}}" required></input>
         </div>
     	<div>
             <input ng-click="guardarEmpleado()" type="button" value="Guardar Empleado"></input>

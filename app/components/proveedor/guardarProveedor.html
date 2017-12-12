@@ -1,21 +1,27 @@
 <div ng-controller="CtrlGuardarProveedor">
     <form>
     	<div>
+            <label>Nombre</label>
     		<input type="text" placeholder="Nombre" ng-model="nombreProveedor" value="{{proveedor.nombreProveedor}}" required/>
     	</div>
         <div>
+            <label>Direccion</label>
     		<input type="text" placeholder="Dirección" ng-model="direccionProveedor" value="{{proveedor.direccionProveedor}}" required/>
     	</div>
     	<div>
+            <label>Ciudad</label>
     		<input type="text" placeholder="Ciudad" ng-model="ciudadProveedor" value="{{proveedor.ciudad}}" required/>
     	</div>
         <div>
+            <label>Codigo Postal</label>
             <input type="text" placeholder="Código postal" ng-model="codigoPostalProveedor" value="{{proveedor.codigoPostal}}" required/>
         </div>
         <div>
+            <label>Pais</label>
             <input type="text" placeholder="País" ng-model="paisProveedor" value="{{proveedor.pais}}" required/>
         </div>
         <div>
+            <label>Telefono</label>
             <input type="text" placeholder="Teléfono" ng-model="telefonoProveedor" value="{{proveedor.telefono}}" required/>
         </div>
         <div>

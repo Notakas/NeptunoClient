@@ -1,24 +1,31 @@
 <div ng-controller="CtrlGuardarCliente">
     <form>
         <div>
+            <label>CIF</label>
             <input type="text" placeholder="CIF" ng-model="cifCliente" value="{{cliente.cif}}" required/>
         </div>
     	<div>
+            <label>Nombre</label>
     		<input type="text" placeholder="Nombre" ng-model="nombrePersonaCliente" value="{{cliente.nombrePersona}}" required/>
     	</div>
         <div>
+            <label>Empresa</label>
     		<input type="text" placeholder="Empresa" ng-model="nombreEmpresaCliente" value="{{cliente.nombreEmpresa}}" required/>
     	</div>
     	<div>
+            <label>Direccion</label>
     		<input type="text" placeholder="Dirección" ng-model="direccionCliente" value="{{cliente.direccion}}" required/>
     	</div>
         <div>
+            <label>Codigo Postal</label>
             <input type="text" placeholder="Código postal" ng-model="codigoPostalCliente" value="{{cliente.codigoPostal}}" required/>
         </div>
         <div>
+            <label>Pais</label>
             <input type="text" placeholder="País" ng-model="paisCliente" value="{{cliente.pais}}" required/>
         </div>
         <div>
+            <label>Telefono</label>
             <input type="text" placeholder="Teléfono" ng-model="telefonoCliente" value="{{cliente.telefono}}" required/>
         </div>
 
